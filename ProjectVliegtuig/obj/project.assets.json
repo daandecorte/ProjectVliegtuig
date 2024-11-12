@@ -102,19 +102,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Daan\\.nuget\\packages\\": {}
+    "C:\\Users\\daand\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Daan\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
+      "projectUniqueName": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
       "projectName": "ProjectVliegtuig",
-      "projectPath": "C:\\Users\\Daan\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
-      "packagesPath": "C:\\Users\\Daan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Daan\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\obj\\",
+      "projectPath": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
+      "packagesPath": "C:\\Users\\daand\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Daan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\daand\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

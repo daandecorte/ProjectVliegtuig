@@ -9,6 +9,11 @@ namespace ProjectVliegtuig
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
+        private Texture2D texture;
+        private Texture2D textureTower;
+
+        Plane plane;
+
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
@@ -18,7 +23,7 @@ namespace ProjectVliegtuig
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            
 
             base.Initialize();
         }
@@ -26,16 +31,28 @@ namespace ProjectVliegtuig
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            //texture = new Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
+            //texture.SetData(new[] { Color.Black });
+            texture = Content.Load<Texture2D>("plane");
 
-            // TODO: use this.Content to load your game content here
+            textureTower = new Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
+            textureTower.SetData(new[] { Color.Gray });
+            LoadGameObjects();
+        }
+        private void LoadGameObjects()
+        {
+            plane = new Plane(texture);
         }
 
         protected override void Update(GameTime gameTime)
         {
+            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();
+            {
+                Exit(); 
+            }
 
-            // TODO: Add your update logic here
+            plane.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -43,9 +60,9 @@ namespace ProjectVliegtuig
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.LightSkyBlue);
-
-            // TODO: Add your drawing code here
-
+            _spriteBatch.Begin();
+            plane.Draw(_spriteBatch);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
