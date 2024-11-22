@@ -3,32 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\interfaces\\igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\interfaces\\igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\input\\keyboardreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\input\\keyboardreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\plane.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\animation\\animatie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\animation\\animatie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\interfaces\\iinputreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\interfaces\\iinputreader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\animation\\animationframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\animation\\animationframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\animation\\animatie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\animation\\animatie.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\animation\\animationframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\animation\\animationframe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\projectvliegtuig.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
       "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\projectvliegtuig.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|c:\\users\\daand\\desktop\\game development\\projectvliegtuig\\projectvliegtuig\\interfaces\\igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5233AA2D-BA07-4AE1-AB03-7FE061411D47}|ProjectVliegtuig\\ProjectVliegtuig.csproj|solutionrelative:projectvliegtuig\\interfaces\\igameobject.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,17 +46,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "IGameObject.cs",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Interfaces\\IGameObject.cs",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Interfaces\\IGameObject.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Interfaces\\IGameObject.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Interfaces\\IGameObject.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAwAAAAlAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T10:40:20.342Z",
               "IsPinned": true,
@@ -56,55 +64,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Plane.cs",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Plane.cs",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Plane.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Plane.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Plane.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAHAAAAAAAAAA==",
+              "ViewState": "AgIAAFEAAAAAAAAAAAAAAGEAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T10:40:43.936Z",
               "IsPinned": true,
               "EditorCaption": ""
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "KeyboardReader.cs",
+              "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Input\\KeyboardReader.cs",
+              "RelativeDocumentMoniker": "ProjectVliegtuig\\Input\\KeyboardReader.cs",
+              "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Input\\KeyboardReader.cs",
+              "RelativeToolTip": "ProjectVliegtuig\\Input\\KeyboardReader.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAA9wBkAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T11:06:02.2Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 2,
+              "Title": "IInputReader.cs",
+              "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Interfaces\\IInputReader.cs",
+              "RelativeDocumentMoniker": "ProjectVliegtuig\\Interfaces\\IInputReader.cs",
+              "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Interfaces\\IInputReader.cs",
+              "RelativeToolTip": "ProjectVliegtuig\\Interfaces\\IInputReader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T11:05:14.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "AnimationFrame.cs",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Animation\\AnimationFrame.cs",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Animation\\AnimationFrame.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Animation\\AnimationFrame.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Animation\\AnimationFrame.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T11:27:37.512Z"
+              "WhenOpened": "2024-11-08T11:27:37.512Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Animatie.cs",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Animation\\Animatie.cs",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Animation\\Animatie.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Animation\\Animatie.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Animation\\Animatie.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAIwCkAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACwAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T11:27:30.441Z"
+              "WhenOpened": "2024-11-08T11:27:30.441Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "Game1.cs",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Game1.cs",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Game1.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Game1.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Game1.cs",
-              "ViewState": "AgIAADQAAAAAAAAAAAAkwD8AAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwBsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-08T09:39:07.004Z",
               "EditorCaption": ""
@@ -117,13 +149,14 @@
               "RelativeDocumentMoniker": "ProjectVliegtuig\\Program.cs",
               "ToolTip": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\Program.cs",
               "RelativeToolTip": "ProjectVliegtuig\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-08T09:38:41.423Z"
+              "WhenOpened": "2024-11-08T09:38:41.423Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "ProjectVliegtuig.csproj",
               "DocumentMoniker": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
               "RelativeDocumentMoniker": "ProjectVliegtuig\\ProjectVliegtuig.csproj",
@@ -131,7 +164,8 @@
               "RelativeToolTip": "ProjectVliegtuig\\ProjectVliegtuig.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-11-08T09:38:30.38Z"
+              "WhenOpened": "2024-11-08T09:38:30.38Z",
+              "EditorCaption": ""
             }
           ]
         }

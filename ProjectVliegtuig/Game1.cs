@@ -23,8 +23,10 @@ namespace ProjectVliegtuig
 
         protected override void Initialize()
         {
-            
-
+            _graphics.IsFullScreen = false;
+            _graphics.PreferredBackBufferWidth = 1280;
+            _graphics.PreferredBackBufferHeight = 720;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 

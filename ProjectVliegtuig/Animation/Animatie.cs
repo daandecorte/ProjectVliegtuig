@@ -34,7 +34,7 @@ namespace ProjectVliegtuig.Animation
                 counter++;
                 secondCounter = 0;
             }
-            if (counter >= frames.Count)
+            if (counter >= 6)
             {
                 counter = 0;
             }
