@@ -17,7 +17,7 @@ namespace ProjectVliegtuig
         private Texture2D texture;
         private Animatie animatie;
         private Vector2 speed;
-        private float acceleration = 0.1f;
+        private float acceleration = 0.25f;
         private Vector2 origin;
         private float rotation;
         private Vector2 position;
@@ -30,11 +30,6 @@ namespace ProjectVliegtuig
             
             animatie = new Animatie();
             animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
-
-            //for (int i = 0; i < 6; i++)
-            //{
-            //    animatie.AddFrame(new AnimationFrame(new Rectangle(i * 100, 0, 100, 100)));
-            //}
         }
         public void Draw(SpriteBatch s)
         {
@@ -48,55 +43,25 @@ namespace ProjectVliegtuig
         }
         private void Move()
         {
-            //float rotationStatus = 0;
-            //float keysDown = 0;
             KeyboardReader keyboard = new KeyboardReader();
-            //if (Keyboard.GetState().IsKeyDown(Keys.Z))
-            //{
-            //    //speed.Y -= acceleration;
-            //    rotationStatus += 2;
-            //    keysDown++;
-            //}
-            //if (Keyboard.GetState().IsKeyDown(Keys.S))
-            //{
-            //    //speed.Y += acceleration;
-            //    rotationStatus += 1;
-            //    keysDown++;
-            //}
-            //if (Keyboard.GetState().IsKeyDown(Keys.D))
-            //{
-            //    //speed.X += acceleration;
-            //    if (rotationStatus == 2) rotationStatus = 0;
-            //    rotationStatus += 0.5f;
-            //    keysDown++;
-            //}
-            //if (Keyboard.GetState().IsKeyDown(Keys.Q))
-            //{
-            //    //speed.X -= acceleration;
-            //    rotationStatus += 1.5f;
-            //    keysDown++;
-            //}
+
             speed += Vector2.Multiply(keyboard.ReadInput(), acceleration);
 
             if(!(position.Y > 0+(texture.Height/6) && position.Y < 720-(texture.Height/6)))
             {
-                if (speed.Y < -10) { speed.Y += acceleration * 50; position.Y += 10; }
-                else if (speed.Y > 10) { speed.Y -= acceleration * 50; position.Y -= 10; }
+                if (position.Y < 0) { position.Y += 50; }
+                else if (position.Y > 720) { position.Y -= 50; }
                 speed.Y = -speed.Y;
             }
             if (!(position.X < 1280 - (texture.Width / 12) && position.X > 0 + (texture.Width / 12)))
             {
-                if (speed.X < -10) { speed.X += acceleration * 50; position.X += 10; }
-                else if (speed.X > 10) { speed.X -= acceleration * 50; position.X -= 10; }
+                if (position.X < 0) { position.X += 50; }
+                else if (position.X > 1280) { position.X -= 50; }
                 speed.X = -speed.X;
             }
+            speed *= 0.98f;
             position += speed;
-
-            //if (keysDown != 0)
-            //{
-                //rotation = rotationStatus / keysDown;
-                rotation = (float)(Math.Atan2(keyboard.ReadInput().X, -keyboard.ReadInput().Y));
-            //}
+            rotation = (float)(Math.Atan2(speed.X, -speed.Y));
         }
     }
 }

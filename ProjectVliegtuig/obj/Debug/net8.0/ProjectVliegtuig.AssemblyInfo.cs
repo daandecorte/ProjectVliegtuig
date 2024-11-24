@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ProjectVliegtuig")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86a65799222dbd0f96fd78a63481dda7ced70c6a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e4f57a66f8025cdc2accde1999b1eed530f0fa8")]
 [assembly: System.Reflection.AssemblyProductAttribute("ProjectVliegtuig")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ProjectVliegtuig")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
