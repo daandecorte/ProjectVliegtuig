@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ProjectVliegtuig.Gameobjects;
 
 namespace ProjectVliegtuig
 {
@@ -10,9 +11,9 @@ namespace ProjectVliegtuig
         private SpriteBatch _spriteBatch;
 
         private Texture2D texture;
-        private Texture2D textureTower;
+        private Texture2D blockTexture;
 
-        Plane plane;
+        Gameobjects.Plane plane;
 
         public Game1()
         {
@@ -33,29 +34,25 @@ namespace ProjectVliegtuig
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            //texture = new Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
-            //texture.SetData(new[] { Color.Black });
             texture = Content.Load<Texture2D>("plane");
-
-            textureTower = new Texture2D(_spriteBatch.GraphicsDevice, 1, 1);
-            textureTower.SetData(new[] { Color.Gray });
+            Bullet.texture = new Texture2D(GraphicsDevice, 1, 1);
+            Bullet.texture.SetData(new[] { Color.Black });
             LoadGameObjects();
         }
         private void LoadGameObjects()
         {
-            plane = new Plane(texture);
+            plane = new Gameobjects.Plane(texture);
         }
 
         protected override void Update(GameTime gameTime)
         {
-            
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
             {
                 Exit(); 
             }
 
             plane.Update(gameTime);
-
+            Bullets.Move();
             base.Update(gameTime);
         }
 
@@ -64,7 +61,9 @@ namespace ProjectVliegtuig
             GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin();
             plane.Draw(_spriteBatch);
+            Bullets.Draw(_spriteBatch);
             _spriteBatch.End();
+
             base.Draw(gameTime);
         }
     }
