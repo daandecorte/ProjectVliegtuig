@@ -11,6 +11,7 @@ namespace ProjectVliegtuig.Gameobjects
     {
         public static Texture2D texture;
         public Vector2 position;
+        public int size = 10;
         private float rotation;
         private Vector2 speed;
         public Bullet(Vector2 speed, Vector2 position)
@@ -23,7 +24,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public void Draw(SpriteBatch s)
         {
-            s.Draw(texture, position, new Rectangle(0, 0, 10, 10), Color.Black, rotation, new Vector2(5, 5), 1, SpriteEffects.None, 0);
+            s.Draw(texture, position, new Rectangle(0, 0, size, size), Color.Black, rotation, new Vector2(size/2, size/2), 1, SpriteEffects.None, 0);
         }
         public void Update(GameTime gameTime)
         {

@@ -35,8 +35,11 @@ namespace ProjectVliegtuig
             DisplayManager.Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
+
             Bullet.texture = new Texture2D(GraphicsDevice, 1, 1);
             Bullet.texture.SetData(new[] { Color.Black });
+            Obstacle.texture = new Texture2D(GraphicsDevice, 1, 1);
+            Obstacle.texture.SetData(new[] { Color.Black });
             LoadGameObjects();
         }
         private void LoadGameObjects()
@@ -53,6 +56,7 @@ namespace ProjectVliegtuig
 
             plane.Update(gameTime);
             BulletManager.Update(gameTime);
+            ObstacleSpawnManager.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -62,6 +66,7 @@ namespace ProjectVliegtuig
             _spriteBatch.Begin();
             plane.Draw(_spriteBatch);
             BulletManager.Draw(_spriteBatch);
+            ObstacleSpawnManager.Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);

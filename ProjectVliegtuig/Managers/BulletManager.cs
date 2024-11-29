@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -30,6 +31,7 @@ namespace ProjectVliegtuig.Managers
                 if (BulletList[i].position.X > DisplayManager.Graphics.PreferredBackBufferWidth || BulletList[i].position.X < 0 || BulletList[i].position.Y < 0 || BulletList[i].position.Y > DisplayManager.Graphics.PreferredBackBufferHeight)
                 {
                     BulletList.RemoveAt(i);
+                    i--;
                 }
             }
         }
