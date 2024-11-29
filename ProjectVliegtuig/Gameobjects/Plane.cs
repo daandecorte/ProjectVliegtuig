@@ -2,8 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectVliegtuig.Animation;
+using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Input;
 using ProjectVliegtuig.Interfaces;
+using ProjectVliegtuig.Managers;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -42,15 +44,7 @@ namespace ProjectVliegtuig.Gameobjects
         public void Update(GameTime gameTime)
         {
             animatie.Update(gameTime);
-            if(Keyboard.GetState().IsKeyDown(Keys.Space)&&!pressed)
-            {
-                pressed = true;
-                Bullets.BulletList.Add(new Bullet(speed, position));
-            }
-            if (Keyboard.GetState().IsKeyUp(Keys.Space))
-            {
-                pressed = false;
-            }
+            Shoot();
             Move();
         }
         private void Move()
@@ -59,21 +53,33 @@ namespace ProjectVliegtuig.Gameobjects
 
             speed += Vector2.Multiply(keyboard.ReadInput(), acceleration);
 
-            if (!(position.Y > origin.Y && position.Y < 720 - origin.Y))
+            if (!(position.Y >= origin.Y && position.Y <= DisplayManager.Graphics.PreferredBackBufferHeight - origin.Y))
             {
-                if (position.Y < 0) { position.Y += 50; }
-                else if (position.Y > 720) { position.Y -= 50; }
+                if (position.Y <= origin.Y) { position.Y++; }
+                else if (position.Y >= DisplayManager.Graphics.PreferredBackBufferHeight-origin.Y) { position.Y--; }
                 speed.Y = -speed.Y;
             }
-            if (!(position.X < 1280 - origin.X && position.X > origin.X))
+            if (!(position.X <= DisplayManager.Graphics.PreferredBackBufferWidth - origin.X && position.X >= origin.X))
             {
-                if (position.X < 0) { position.X += 50; }
-                else if (position.X > 1280) { position.X -= 50; }
+                if (position.X <= origin.X) { position.X++; }
+                else if (position.X >= DisplayManager.Graphics.PreferredBackBufferWidth-origin.X) { position.X--; }
                 speed.X = -speed.X;
             }
             speed *= deceleration;
             position += speed;
             rotation = (float)Math.Atan2(speed.X, -speed.Y);
+        }
+        private void Shoot()
+        {
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) && !pressed)
+            {
+                pressed = true;
+                BulletManager.BulletList.Add(new Bullet(speed, position));
+            }
+            if (Keyboard.GetState().IsKeyUp(Keys.Space))
+            {
+                pressed = false;
+            }
         }
     }
 }

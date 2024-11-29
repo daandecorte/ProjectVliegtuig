@@ -1,7 +1,9 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Managers;
 
 namespace ProjectVliegtuig
 {
@@ -18,21 +20,19 @@ namespace ProjectVliegtuig
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
+            DisplayManager.Graphics = _graphics;
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
-        {
-            _graphics.IsFullScreen = false;
-            _graphics.PreferredBackBufferWidth = 1280;
-            _graphics.PreferredBackBufferHeight = 720;
-            _graphics.ApplyChanges();
+        {   
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
+            DisplayManager.Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
             Bullet.texture = new Texture2D(GraphicsDevice, 1, 1);
@@ -52,7 +52,7 @@ namespace ProjectVliegtuig
             }
 
             plane.Update(gameTime);
-            Bullets.Move();
+            BulletManager.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -61,7 +61,7 @@ namespace ProjectVliegtuig
             GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin();
             plane.Draw(_spriteBatch);
-            Bullets.Draw(_spriteBatch);
+            BulletManager.Draw(_spriteBatch);
             _spriteBatch.End();
 
             base.Draw(gameTime);
