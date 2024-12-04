@@ -26,6 +26,7 @@ namespace ProjectVliegtuig.Gameobjects
         private float rotation;
         private Vector2 position;
         private bool pressed = false;
+        private double secondCounter = 0;
         public Plane(Texture2D texture)
         {
             this.texture = texture;
@@ -44,7 +45,7 @@ namespace ProjectVliegtuig.Gameobjects
         public void Update(GameTime gameTime)
         {
             animatie.Update(gameTime);
-            Shoot();
+            Shoot(gameTime);
             Move();
         }
         private void Move()
@@ -69,12 +70,21 @@ namespace ProjectVliegtuig.Gameobjects
             position += speed;
             rotation = (float)Math.Atan2(speed.X, -speed.Y);
         }
-        private void Shoot()
+        private void Shoot(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && !pressed)
             {
                 pressed = true;
                 BulletManager.BulletList.Add(new Bullet(speed, position));
+                secondCounter = 0;
+            }
+            else if (Keyboard.GetState().IsKeyDown(Keys.Space) && pressed)
+            {
+                secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+                if (secondCounter >= 0.2d)
+                {
+                    pressed = false;
+                }
             }
             if (Keyboard.GetState().IsKeyUp(Keys.Space))
             {
