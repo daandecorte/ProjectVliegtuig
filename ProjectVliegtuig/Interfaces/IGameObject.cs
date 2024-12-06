@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Interfaces
 {
-    internal interface IGameObject
+    public interface IGameObject
     {
         void Update(GameTime gameTime);
         void Draw(SpriteBatch s);

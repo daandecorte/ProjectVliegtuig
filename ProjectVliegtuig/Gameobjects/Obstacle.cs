@@ -35,7 +35,7 @@ namespace ProjectVliegtuig.Gameobjects
                 bullet = o as Bullet;
             }
             else return false;
-            if(bullet.position.X+bullet.size>position.X&&bullet.position.X<position.X+size)
+            if (bullet.position.X + bullet.size > position.X && bullet.position.X < position.X + size) 
             {
                 if(bullet.position.Y + bullet.size > position.Y && bullet.position.Y < position.Y + size)
                 {

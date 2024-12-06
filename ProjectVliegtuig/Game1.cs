@@ -13,9 +13,14 @@ namespace ProjectVliegtuig
         private SpriteBatch _spriteBatch;
 
         private Texture2D texture;
+        private Texture2D background;
         private Texture2D blockTexture;
+        private Texture2D startscreen;
 
-        Gameobjects.Plane plane;
+        public static Gameobjects.Plane plane;
+        EnemyManager enemyManager;
+
+        private bool isPlaying = false;
 
         public Game1()
         {
@@ -35,6 +40,8 @@ namespace ProjectVliegtuig
             DisplayManager.Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
+            background = Content.Load<Texture2D>("background");
+            startscreen = Content.Load<Texture2D>("start");
 
             Bullet.texture = new Texture2D(GraphicsDevice, 1, 1);
             Bullet.texture.SetData(new[] { Color.Black });
@@ -45,6 +52,7 @@ namespace ProjectVliegtuig
         private void LoadGameObjects()
         {
             plane = new Gameobjects.Plane(texture);
+            enemyManager = new EnemyManager();
         }
 
         protected override void Update(GameTime gameTime)
@@ -53,10 +61,17 @@ namespace ProjectVliegtuig
             {
                 Exit(); 
             }
-
-            plane.Update(gameTime);
-            BulletManager.Update(gameTime);
-            ObstacleSpawnManager.Update(gameTime);
+            if(Keyboard.GetState().IsKeyDown(Keys.Enter))
+            {
+                isPlaying = true;
+            }
+            if(isPlaying)
+            {
+                plane.Update(gameTime);
+                BulletManager.Update(gameTime);
+                enemyManager.Update(gameTime);
+                //ObstacleSpawnManager.Update(gameTime);
+            }
             base.Update(gameTime);
         }
 
@@ -64,9 +79,18 @@ namespace ProjectVliegtuig
         {
             GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin();
-            plane.Draw(_spriteBatch);
-            BulletManager.Draw(_spriteBatch);
-            ObstacleSpawnManager.Draw(_spriteBatch);
+            //_spriteBatch.Draw(background, new Rectangle(0,0,1280, 720), Color.White);
+            if(isPlaying)
+            {
+                plane.Draw(_spriteBatch);
+                BulletManager.Draw(_spriteBatch);
+                enemyManager.Draw(_spriteBatch);
+                //ObstacleSpawnManager.Draw(_spriteBatch);
+            }
+            else
+            {
+                _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
+            }
             _spriteBatch.End();
 
             base.Draw(gameTime);

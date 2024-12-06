@@ -15,16 +15,12 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Gameobjects
 {
-    internal class Plane : IGameObject
+    public class Plane : GameObject
     {
-        private Texture2D texture;
         private Animatie animatie;
-        private Vector2 speed;
         private float acceleration = 0.25f;
         private float deceleration = 0.98f;
         private Vector2 origin;
-        private float rotation;
-        private Vector2 position;
         private bool pressed = false;
         private double secondCounter = 0;
         public Plane(Texture2D texture)
@@ -37,12 +33,12 @@ namespace ProjectVliegtuig.Gameobjects
             animatie = new Animatie();
             animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
         }
-        public void Draw(SpriteBatch s)
+        public override void Draw(SpriteBatch s)
         {
             s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0f);
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
             animatie.Update(gameTime);
             Shoot(gameTime);

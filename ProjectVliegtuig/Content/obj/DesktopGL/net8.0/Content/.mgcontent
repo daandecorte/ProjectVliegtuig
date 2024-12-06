@@ -4,9 +4,13 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/background.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/plane.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/start.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
 </SourceFileCollection>

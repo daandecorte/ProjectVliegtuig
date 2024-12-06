@@ -10,10 +10,10 @@ namespace ProjectVliegtuig.Gameobjects
     public class Bullet: IGameObject
     {
         public static Texture2D texture;
-        public Vector2 position;
         public int size = 10;
-        private float rotation;
+        public Vector2 position;
         private Vector2 speed;
+        private float rotation;
         public Bullet(Vector2 speed, Vector2 position)
         {
             this.rotation = (float)Math.Atan2(speed.X, -speed.Y);

@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Managers
 {
-    public static class ObstacleSpawnManager
+    public static class ObstacleSpawnManager//: Manager<Obstacle>
     {
         public static List<Obstacle> obstacles { get; set; } = new List<Obstacle>();
         private static double secondCounter = 0;
