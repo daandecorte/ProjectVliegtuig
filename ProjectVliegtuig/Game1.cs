@@ -42,11 +42,7 @@ namespace ProjectVliegtuig
             texture = Content.Load<Texture2D>("plane");
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
-
-            Bullet.texture = new Texture2D(GraphicsDevice, 1, 1);
-            Bullet.texture.SetData(new[] { Color.Black });
-            Obstacle.texture = new Texture2D(GraphicsDevice, 1, 1);
-            Obstacle.texture.SetData(new[] { Color.Black });
+            GameObject.graphicsDevice = GraphicsDevice;
             LoadGameObjects();
         }
         private void LoadGameObjects()

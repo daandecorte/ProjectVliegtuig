@@ -26,7 +26,7 @@ namespace ProjectVliegtuig.Gameobjects
         public Plane(Texture2D texture)
         {
             this.texture = texture;
-            position = new Vector2(200, 200);
+            position = new Vector2(DisplayManager.Graphics.PreferredBackBufferWidth/2, DisplayManager.Graphics.PreferredBackBufferHeight / 2);
             origin = new Vector2(texture.Width / 12, texture.Height / 6);
             speed = new Vector2(0, 0);
 

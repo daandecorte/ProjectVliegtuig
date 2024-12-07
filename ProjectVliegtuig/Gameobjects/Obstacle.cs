@@ -9,21 +9,22 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Gameobjects
 {
-    public class Obstacle : IGameObject
+    public class Obstacle : GameObject
     {
-        public static Texture2D texture;
         private int size = 50;
-        private Vector2 position;
         public Obstacle(Vector2 position)
         {
             this.position = position;
+
+            this.texture = new Texture2D(graphicsDevice, 1, 1);
+            this.texture.SetData(new[] { Color.Black });
         }
-        public void Draw(SpriteBatch s)
+        public override void Draw(SpriteBatch s)
         {
             s.Draw(texture, position, new Rectangle(0, 0, size, size), Color.Black);
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 
         }
