@@ -54,3 +54,4 @@ C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\obj\De
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ref\ProjectVliegtuig.dll
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\background.xnb
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\start.xnb
+C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\enemy.xnb

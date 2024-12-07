@@ -14,19 +14,22 @@ namespace ProjectVliegtuig.Gameobjects
     {
         private Vector2 direction;
         private Vector2 origin;
-        private int size = 50;
+        private float acceleration = 0.10f;
+        private float deceleration = 0.98f;
+
         public int health = 3;
-        public Enemy(Vector2 position)
+        public Enemy(Texture2D texture, Vector2 position)
         {
             this.position = position;
             direction = new Vector2(0, 0);
-            origin = new Vector2(size/2, size/2);
+
+            this.texture = texture;
+
+            origin = new Vector2(this.texture.Width / 2, this.texture.Height/2);
         }
         public override void Draw(SpriteBatch s)
         {
-            texture = new Texture2D(s.GraphicsDevice, 1, 1);
-            texture.SetData(new[] { Color.Red });
-            s.Draw(texture, position, new Rectangle(0, 0, size, size), Color.White, rotation, origin, 1.0f ,SpriteEffects.None, 0.0f);
+            s.Draw(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), Color.White, rotation, origin, 1 ,SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
         {
@@ -46,8 +49,8 @@ namespace ProjectVliegtuig.Gameobjects
             {
                 direction.Y = -1;
             }
-            speed += direction * 0.10f;
-            speed *= 0.98f;
+            speed += direction * acceleration;
+            speed *= deceleration;
             position += speed;
             rotation = (float)Math.Atan2(speed.X, -speed.Y);
         }
@@ -59,9 +62,9 @@ namespace ProjectVliegtuig.Gameobjects
                 bullet = o as Bullet;
             }
             else return false;
-            if (bullet.position.X + bullet.size > position.X && bullet.position.X < position.X + size)
+            if (bullet.position.X + bullet.size > position.X && bullet.position.X < position.X + origin.X * 2) 
             {
-                if (bullet.position.Y + bullet.size > position.Y && bullet.position.Y < position.Y + size)
+                if (bullet.position.Y + bullet.size > position.Y && bullet.position.Y < position.Y + origin.Y * 2)
                 {
                     health--;
                     speed = (bullet.speed/1.5f)+speed;

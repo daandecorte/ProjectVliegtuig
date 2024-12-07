@@ -16,6 +16,7 @@ namespace ProjectVliegtuig
         private Texture2D background;
         private Texture2D blockTexture;
         private Texture2D startscreen;
+        private Texture2D enemyPlane;
 
         public static Gameobjects.Plane plane;
         EnemyManager enemyManager;
@@ -40,6 +41,7 @@ namespace ProjectVliegtuig
             DisplayManager.Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
+            enemyPlane = Content.Load<Texture2D>("enemy");
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
             GameObject.graphicsDevice = GraphicsDevice;
@@ -48,7 +50,7 @@ namespace ProjectVliegtuig
         private void LoadGameObjects()
         {
             plane = new Gameobjects.Plane(texture);
-            enemyManager = new EnemyManager();
+            enemyManager = new EnemyManager(enemyPlane);
         }
 
         protected override void Update(GameTime gameTime)
@@ -60,6 +62,10 @@ namespace ProjectVliegtuig
             if(Keyboard.GetState().IsKeyDown(Keys.Enter))
             {
                 isPlaying = true;
+            }
+            if(plane.health<=0)
+            {
+                isPlaying = false;
             }
             if(isPlaying)
             {
@@ -85,7 +91,14 @@ namespace ProjectVliegtuig
             }
             else
             {
-                _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
+                if(plane.health<=0)
+                {
+
+                }
+                else
+                {
+                    _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
+                }
             }
             _spriteBatch.End();
 

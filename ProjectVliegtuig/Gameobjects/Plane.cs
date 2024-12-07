@@ -23,6 +23,7 @@ namespace ProjectVliegtuig.Gameobjects
         private Vector2 origin;
         private bool pressed = false;
         private double secondCounter = 0;
+        public int health = 3;
         public Plane(Texture2D texture)
         {
             this.texture = texture;
