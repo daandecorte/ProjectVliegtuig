@@ -27,7 +27,7 @@ namespace ProjectVliegtuig.Gameobjects
         public Plane(Texture2D texture)
         {
             this.texture = texture;
-            position = new Vector2(DisplayManager.Graphics.PreferredBackBufferWidth/2, DisplayManager.Graphics.PreferredBackBufferHeight / 2);
+            position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
             origin = new Vector2(texture.Width / 12, texture.Height / 6);
             speed = new Vector2(0, 0);
 
@@ -51,16 +51,16 @@ namespace ProjectVliegtuig.Gameobjects
 
             speed += Vector2.Multiply(keyboard.ReadInput(), acceleration);
 
-            if (!(position.Y >= origin.Y && position.Y <= DisplayManager.Graphics.PreferredBackBufferHeight - origin.Y))
+            if (!(position.Y >= origin.Y && position.Y <= DisplayManager.getDisplay().height - origin.Y))
             {
                 if (position.Y <= origin.Y) { position.Y++; }
-                else if (position.Y >= DisplayManager.Graphics.PreferredBackBufferHeight-origin.Y) { position.Y--; }
+                else if (position.Y >= DisplayManager.getDisplay().height - origin.Y) { position.Y--; }
                 speed.Y = -speed.Y;
             }
-            if (!(position.X <= DisplayManager.Graphics.PreferredBackBufferWidth - origin.X && position.X >= origin.X))
+            if (!(position.X <= DisplayManager.getDisplay().width - origin.X && position.X >= origin.X))
             {
                 if (position.X <= origin.X) { position.X++; }
-                else if (position.X >= DisplayManager.Graphics.PreferredBackBufferWidth-origin.X) { position.X--; }
+                else if (position.X >= DisplayManager.getDisplay().width - origin.X) { position.X--; }
                 speed.X = -speed.X;
             }
             speed *= deceleration;

@@ -55,16 +55,16 @@ namespace ProjectVliegtuig.Managers
                 switch(random.Next(0, 4))
                 {
                     case 0:
-                        spawnPos = new Vector2(random.Next(0, DisplayManager.Graphics.PreferredBackBufferWidth), -100);
+                        spawnPos = new Vector2(random.Next(0, DisplayManager.getDisplay().width), -100);
                         break;
                     case 1:
-                        spawnPos = new Vector2(random.Next(0, DisplayManager.Graphics.PreferredBackBufferWidth), DisplayManager.Graphics.PreferredBackBufferHeight+100);
+                        spawnPos = new Vector2(random.Next(0, DisplayManager.getDisplay().width), DisplayManager.getDisplay().height + 100);
                         break;
                     case 2:
-                        spawnPos = new Vector2(-100, random.Next(0, DisplayManager.Graphics.PreferredBackBufferHeight));
+                        spawnPos = new Vector2(-100, random.Next(0, DisplayManager.getDisplay().height));
                         break;
                     case 3:
-                        spawnPos = new Vector2(DisplayManager.Graphics.PreferredBackBufferWidth+100, random.Next(0, DisplayManager.Graphics.PreferredBackBufferHeight));
+                        spawnPos = new Vector2(DisplayManager.getDisplay().width + 100, random.Next(0, DisplayManager.getDisplay().height));
                         break;
                 }
                 ObjectList.Add(new Enemy(texture, spawnPos));

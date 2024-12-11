@@ -26,7 +26,7 @@ namespace ProjectVliegtuig
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            DisplayManager.Graphics = _graphics;
+            DisplayManager.init(_graphics);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -38,7 +38,7 @@ namespace ProjectVliegtuig
 
         protected override void LoadContent()
         {
-            DisplayManager.Apply();
+            DisplayManager.getDisplay().Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
             enemyPlane = Content.Load<Texture2D>("enemy");
@@ -81,7 +81,7 @@ namespace ProjectVliegtuig
         {
             GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin();
-            //_spriteBatch.Draw(background, new Rectangle(0,0,1280, 720), Color.White);
+            //_spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
             if(isPlaying)
             {
                 plane.Draw(_spriteBatch);
@@ -97,7 +97,7 @@ namespace ProjectVliegtuig
                 }
                 else
                 {
-                    _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
+                    _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
                 }
             }
             _spriteBatch.End();

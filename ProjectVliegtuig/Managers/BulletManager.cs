@@ -28,7 +28,7 @@ namespace ProjectVliegtuig.Managers
             for (int i = 0; i < BulletList.Count; i++)
             {
                 BulletList[i].Update(gameTime);
-                if (BulletList[i].position.X > DisplayManager.Graphics.PreferredBackBufferWidth || BulletList[i].position.X < 0 || BulletList[i].position.Y < 0 || BulletList[i].position.Y > DisplayManager.Graphics.PreferredBackBufferHeight)
+                if (BulletList[i].position.X > DisplayManager.getDisplay().width || BulletList[i].position.X < 0 || BulletList[i].position.Y < 0 || BulletList[i].position.Y > DisplayManager.getDisplay().height)
                 {
                     BulletList.RemoveAt(i);
                     i--;

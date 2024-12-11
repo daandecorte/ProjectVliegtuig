@@ -57,8 +57,8 @@ namespace ProjectVliegtuig.Managers
             obstacles.Add(
                 new Obstacle(
                     new Vector2(
-                        random.Next(0, DisplayManager.Graphics.PreferredBackBufferWidth-30),
-                        random.Next(0, DisplayManager.Graphics.PreferredBackBufferHeight-30)
+                        random.Next(0, DisplayManager.getDisplay().width - 30),
+                        random.Next(0, DisplayManager.getDisplay().height - 30)
                     )
                 )
             );

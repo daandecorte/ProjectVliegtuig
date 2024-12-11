@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,16 +8,41 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Display
 {
-    public static class DisplayManager
+    public class DisplayManager
     {
-		public static GraphicsDeviceManager Graphics;
-
-        public static void Apply()
+        public int width = 1920;
+        public int height = 1080;
+		private GraphicsDeviceManager graphicsDeviceManager;
+        private static DisplayManager displayManager;
+        private DisplayManager(GraphicsDeviceManager graphics)
         {
-            Graphics.IsFullScreen = false;
-            Graphics.PreferredBackBufferWidth = 1280;
-            Graphics.PreferredBackBufferHeight = 720;
-            Graphics.ApplyChanges();
+            graphicsDeviceManager = graphics;
+        }
+        public static void init(GraphicsDeviceManager graphics)
+        {
+            if(displayManager == null)
+            {
+                displayManager = new DisplayManager(graphics);
+            }
+        }
+        public static DisplayManager getDisplay()
+        {
+            if (displayManager != null)
+            {
+                return displayManager;
+            }
+            else return null;
+        }
+
+        public void Apply()
+        {
+            if(graphicsDeviceManager != null)
+            {
+                graphicsDeviceManager.IsFullScreen = false;
+                graphicsDeviceManager.PreferredBackBufferWidth = width;
+                graphicsDeviceManager.PreferredBackBufferHeight = height;
+                graphicsDeviceManager.ApplyChanges();
+            }
         }
 	}
 }
