@@ -31,7 +31,7 @@ namespace ProjectVliegtuig.Managers
                 {
                     try
                     {
-                        if(ObjectList[i].Collide(BulletManager.BulletList[j]))
+                        if (ObjectList[i].Collide(BulletManager.BulletList[j]))
                         {
                             BulletManager.BulletList.Remove(BulletManager.BulletList[j]);
                             j--;
@@ -74,7 +74,7 @@ namespace ProjectVliegtuig.Managers
                         spawnPos = new Vector2(DisplayManager.getDisplay().width + 100, random.Next(0, DisplayManager.getDisplay().height));
                         break;
                 }
-                ObjectList.Add(new Enemy(texture, spawnPos));
+                ObjectList.Add(new ShootingEnemy(texture, spawnPos));
                 secondCounter = 0;
             }
         }

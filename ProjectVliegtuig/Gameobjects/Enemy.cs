@@ -14,11 +14,13 @@ namespace ProjectVliegtuig.Gameobjects
     public class Enemy : GameObject
     {
         private Vector2 direction;
-        private Vector2 origin;
+        protected Vector2 origin;
         private float acceleration = 0.10f;
         private float deceleration = 0.98f;
 
         public int health = 3;
+
+        public Texture2D box;
         public Enemy(Texture2D texture, Vector2 position)
         {
             this.position = position;
@@ -26,12 +28,16 @@ namespace ProjectVliegtuig.Gameobjects
 
             this.texture = texture;
 
+            box = new Texture2D(graphicsDevice, 1, 1);
+            box.SetData(new[] { Color.Red });
+
             origin = new Vector2(this.texture.Width / 2, this.texture.Height/2);
             size = new Vector2(this.texture.Width, this.texture.Height);
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1 ,SpriteEffects.None, 0.0f);
+            s.Draw(box, position, new Rectangle(0, 0, 10, 10), Color.Red, rotation, origin, 1, SpriteEffects.None, 0.0f);
+            s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
         {
@@ -52,6 +58,7 @@ namespace ProjectVliegtuig.Gameobjects
                 direction.Y = -1;
             }
             Move();
+            Shoot(gameTime);
         }
         private void Move()
         {
@@ -72,9 +79,9 @@ namespace ProjectVliegtuig.Gameobjects
                 obj = o as Plane;
             } 
             else return false;
-            if (obj.position.X + obj.size.X > position.X && obj.position.X < position.X + size.X) 
+            if (obj.position.X + obj.origin.X > position.X && obj.position.X < position.X + origin.X) 
             {
-                if (obj.position.Y + obj.size.Y > position.Y && obj.position.Y < position.Y + size.Y)
+                if (obj.position.Y + obj.origin.Y > position.Y && obj.position.Y < position.Y + origin.Y)
                 {
                     health--;
                     speed = (obj.speed/1.5f)+speed;
@@ -82,6 +89,10 @@ namespace ProjectVliegtuig.Gameobjects
                 }
             }
             return false;
+        }
+        protected virtual void Shoot(GameTime gameTime)
+        {
+            
         }
     }
 }

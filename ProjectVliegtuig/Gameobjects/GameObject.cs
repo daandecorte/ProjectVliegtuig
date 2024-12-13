@@ -17,6 +17,7 @@ namespace ProjectVliegtuig.Gameobjects
         public Vector2 position;
         public float rotation;
         public Vector2 size;
+        public Vector2 origin;
         public abstract void Update(GameTime gameTime);
         public abstract void Draw(SpriteBatch s);
     }
