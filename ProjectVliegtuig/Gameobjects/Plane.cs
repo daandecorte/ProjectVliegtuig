@@ -24,11 +24,14 @@ namespace ProjectVliegtuig.Gameobjects
         private bool pressed = false;
         private double secondCounter = 0;
         public int health = 3;
-        public Plane(Texture2D texture)
+        private Texture2D healthBar;
+        public Plane(Texture2D texture, Texture2D healthBar)
         {
             this.texture = texture;
+            this.healthBar = healthBar;
             position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
             origin = new Vector2(texture.Width / 12, texture.Height / 6);
+            size = new Vector2(texture.Width/6, texture.Height/3);
             speed = new Vector2(0, 0);
 
             animatie = new Animatie();
@@ -37,6 +40,7 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Draw(SpriteBatch s)
         {
             s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0f);
+            s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }
 
         public override void Update(GameTime gameTime)

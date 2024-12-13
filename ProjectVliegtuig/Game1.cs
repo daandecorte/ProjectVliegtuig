@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Input.Touch;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
 using ProjectVliegtuig.Managers;
@@ -13,9 +14,11 @@ namespace ProjectVliegtuig
         private SpriteBatch _spriteBatch;
 
         private Texture2D texture;
+        private Texture2D healthBar;
         private Texture2D background;
         private Texture2D blockTexture;
         private Texture2D startscreen;
+        private Texture2D gameOverScreen;
         private Texture2D enemyPlane;
 
         public static Gameobjects.Plane plane;
@@ -41,15 +44,17 @@ namespace ProjectVliegtuig
             DisplayManager.getDisplay().Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             texture = Content.Load<Texture2D>("plane");
+            healthBar = Content.Load<Texture2D>("hearts");
             enemyPlane = Content.Load<Texture2D>("enemy");
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
+            gameOverScreen = Content.Load<Texture2D>("gameover");
             GameObject.graphicsDevice = GraphicsDevice;
             LoadGameObjects();
         }
         private void LoadGameObjects()
         {
-            plane = new Gameobjects.Plane(texture);
+            plane = new Gameobjects.Plane(texture, healthBar);
             enemyManager = new EnemyManager(enemyPlane);
         }
 
@@ -59,9 +64,10 @@ namespace ProjectVliegtuig
             {
                 Exit(); 
             }
-            if(Keyboard.GetState().IsKeyDown(Keys.Enter))
+            if(Keyboard.GetState().IsKeyDown(Keys.Enter) && !isPlaying)
             {
                 isPlaying = true;
+                plane.health = 3;
             }
             if(plane.health<=0)
             {
@@ -93,11 +99,11 @@ namespace ProjectVliegtuig
             {
                 if(plane.health<=0)
                 {
-
+                    _spriteBatch.Draw(gameOverScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
                 else
                 {
-                    _spriteBatch.Draw(startscreen, new Rectangle(0, 0, DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
+                    _spriteBatch.Draw(startscreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
             }
             _spriteBatch.End();

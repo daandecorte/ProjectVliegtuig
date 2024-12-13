@@ -6,10 +6,14 @@
   <SourceFiles>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/background.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/enemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/hearts.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/plane.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/start.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

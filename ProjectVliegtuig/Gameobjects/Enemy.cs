@@ -4,6 +4,7 @@ using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.Managers;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,10 +27,11 @@ namespace ProjectVliegtuig.Gameobjects
             this.texture = texture;
 
             origin = new Vector2(this.texture.Width / 2, this.texture.Height/2);
+            size = new Vector2(this.texture.Width, this.texture.Height);
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(texture, position, new Rectangle(0, 0, texture.Width, texture.Height), Color.White, rotation, origin, 1 ,SpriteEffects.None, 0.0f);
+            s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1 ,SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
         {
@@ -37,18 +39,22 @@ namespace ProjectVliegtuig.Gameobjects
             {
                 direction.X = 1;
             }
-            if(Game1.plane.position.X < position.X)
+            if (Game1.plane.position.X < position.X)
             {
                 direction.X = -1;
             }
-            if(Game1.plane.position.Y > position.Y)
+            if (Game1.plane.position.Y > position.Y)
             {
                 direction.Y = 1;
             }
-            if(Game1.plane.position.Y < position.Y)
+            if (Game1.plane.position.Y < position.Y)
             {
                 direction.Y = -1;
             }
+            Move();
+        }
+        private void Move()
+        {
             speed += direction * acceleration;
             speed *= deceleration;
             position += speed;
@@ -56,18 +62,22 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public bool Collide(object o)
         {
-            Bullet bullet;
+            GameObject obj;
             if (o is Bullet)
             {
-                bullet = o as Bullet;
+                obj = o as Bullet;
             }
-            else return false;
-            if (bullet.position.X + bullet.size > position.X && bullet.position.X < position.X + origin.X * 2) 
+            else if (o is Plane) 
             {
-                if (bullet.position.Y + bullet.size > position.Y && bullet.position.Y < position.Y + origin.Y * 2)
+                obj = o as Plane;
+            } 
+            else return false;
+            if (obj.position.X + obj.size.X > position.X && obj.position.X < position.X + size.X) 
+            {
+                if (obj.position.Y + obj.size.Y > position.Y && obj.position.Y < position.Y + size.Y)
                 {
                     health--;
-                    speed = (bullet.speed/1.5f)+speed;
+                    speed = (obj.speed/1.5f)+speed;
                     return true;
                 }
             }

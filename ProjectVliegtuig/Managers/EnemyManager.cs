@@ -40,9 +40,16 @@ namespace ProjectVliegtuig.Managers
                     catch (Exception e)
                     { }
                 }
-                if (ObjectList[i].health<=0)
+                if (ObjectList[i].health <= 0)
                 {
                     ObjectList.RemoveAt(i);
+                    if (i > 0) i--;
+                }
+                if (ObjectList[i].Collide(Game1.plane))
+                {
+                    Game1.plane.health--;
+                    ObjectList.RemoveAt(i);
+                    if (i > 0) i--;
                 }
             }
         }
@@ -50,7 +57,7 @@ namespace ProjectVliegtuig.Managers
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             Vector2 spawnPos = new Vector2();
-            if(secondCounter>=5d)
+            if (secondCounter >= 2d)
             {
                 switch(random.Next(0, 4))
                 {

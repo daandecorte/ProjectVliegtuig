@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,13 +11,15 @@ namespace ProjectVliegtuig.Display
 {
     public class DisplayManager
     {
-        public int width = 1920;
-        public int height = 1080;
+        public readonly int width = 1920;
+        public readonly int height = 1080;
+        public readonly Rectangle fullScreenRectangle;
 		private GraphicsDeviceManager graphicsDeviceManager;
         private static DisplayManager displayManager;
         private DisplayManager(GraphicsDeviceManager graphics)
         {
             graphicsDeviceManager = graphics;
+            fullScreenRectangle = new Rectangle(0, 0, width, height);
         }
         public static void init(GraphicsDeviceManager graphics)
         {
