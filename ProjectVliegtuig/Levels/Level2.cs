@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Levels
 {
-    internal class Level1 : Level
+    public class Level2 : Level
     {
         public override List<Enemy> Enemies { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public override int EnemyCount { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

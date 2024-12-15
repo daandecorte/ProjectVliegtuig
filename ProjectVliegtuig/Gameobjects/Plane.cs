@@ -20,25 +20,31 @@ namespace ProjectVliegtuig.Gameobjects
         private Animatie animatie;
         private float acceleration = 0.25f;
         private float deceleration = 0.98f;
-        private Vector2 origin;
         private bool pressed = false;
         private double secondCounter = 0;
         public int health = 3;
         private Texture2D healthBar;
+
+        private Texture2D box;
         public Plane(Texture2D texture, Texture2D healthBar)
         {
             this.texture = texture;
             this.healthBar = healthBar;
             position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
-            origin = new Vector2(texture.Width / 12, texture.Height / 6);
             size = new Vector2(texture.Width/6, texture.Height/3);
+            origin = new Vector2(size.X / 2, size.Y / 2);
             speed = new Vector2(0, 0);
+
+            box = new Texture2D(graphicsDevice, 1, 1);
+            box.SetData(new[] { Color.Red });
 
             animatie = new Animatie();
             animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
         }
         public override void Draw(SpriteBatch s)
         {
+            //s.Draw(box, new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y), Color.White);
+
             s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }
@@ -48,6 +54,7 @@ namespace ProjectVliegtuig.Gameobjects
             animatie.Update(gameTime);
             Shoot(gameTime);
             Move();
+            Collide();
         }
         private void Move()
         {
@@ -90,6 +97,22 @@ namespace ProjectVliegtuig.Gameobjects
             if (Keyboard.GetState().IsKeyUp(Keys.Space))
             {
                 pressed = false;
+            }
+        }
+        private void Collide()
+        {
+            for (int i = 0; i < BulletManager.BulletList.Count; i++)
+            {
+                Bullet bullet = BulletManager.BulletList[i];
+                if (bullet.position.X + bullet.origin.X >= position.X - origin.X && bullet.position.X - bullet.origin.X <= position.X + origin.X)
+                {
+                    if (bullet.position.Y + bullet.origin.Y >= position.Y - origin.Y && bullet.position.Y - bullet.origin.Y <= position.Y + origin.Y)
+                    {
+                        health--;
+                        BulletManager.BulletList.RemoveAt(i);
+                        if(i>0) i--;
+                    }
+                }
             }
         }
     }

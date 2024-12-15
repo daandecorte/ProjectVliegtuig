@@ -14,7 +14,6 @@ namespace ProjectVliegtuig.Gameobjects
     public class Enemy : GameObject
     {
         private Vector2 direction;
-        protected Vector2 origin;
         private float acceleration = 0.10f;
         private float deceleration = 0.98f;
 
@@ -36,7 +35,8 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(box, position, new Rectangle(0, 0, 10, 10), Color.Red, rotation, origin, 1, SpriteEffects.None, 0.0f);
+            //s.Draw(box, new Rectangle((int)position.X-(int)origin.X, (int)position.Y-(int)origin.Y, (int)size.X, (int)size.Y), Color.White);
+            //s.Draw(box, position, new Rectangle((int)position.X, (int)position.Y, (int)origin.X, (int)origin.Y), Color.Red, rotation, origin, 1, SpriteEffects.None, 0.0f);
             s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
@@ -79,9 +79,9 @@ namespace ProjectVliegtuig.Gameobjects
                 obj = o as Plane;
             } 
             else return false;
-            if (obj.position.X + obj.origin.X > position.X && obj.position.X < position.X + origin.X) 
+            if (obj.position.X + obj.origin.X >= position.X-origin.X && obj.position.X-obj.origin.X <= position.X + origin.X) 
             {
-                if (obj.position.Y + obj.origin.Y > position.Y && obj.position.Y < position.Y + origin.Y)
+                if (obj.position.Y + obj.origin.Y >= position.Y-origin.Y && obj.position.Y-obj.origin.Y <= position.Y + origin.Y)
                 {
                     health--;
                     speed = (obj.speed/1.5f)+speed;
