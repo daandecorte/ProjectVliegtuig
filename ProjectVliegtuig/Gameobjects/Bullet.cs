@@ -9,9 +9,9 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class Bullet: GameObject
     {
-        public Bullet(Vector2 speed, Vector2 position)
+        public Bullet(Vector2 direction, Vector2 position)
         {
-            this.rotation = (float)Math.Atan2(speed.X, -speed.Y);
+            this.rotation = (float)Math.Atan2(direction.X, -direction.Y);
             this.speed.X = (float)Math.Sin(rotation)*20;
             this.speed.Y = -(float)Math.Cos(rotation)*20;
             size = new Vector2(10, 10);
@@ -32,7 +32,5 @@ namespace ProjectVliegtuig.Gameobjects
         {
             position += speed;
         }
-
-
     }
 }

@@ -56,7 +56,7 @@ namespace ProjectVliegtuig.Managers
         }
         private void spawn(GameTime gameTime)
         {
-            secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+            //secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             Vector2 spawnPos = new Vector2();
             if (secondCounter >= SpawnInterval)
             {
@@ -75,7 +75,7 @@ namespace ProjectVliegtuig.Managers
                         spawnPos = new Vector2(DisplayManager.getDisplay().width + 100, random.Next(0, DisplayManager.getDisplay().height));
                         break;
                 }
-                ObjectList.Add(new ShootingEnemy(texture, spawnPos));
+                ObjectList.Add(new BossEnemy(texture, spawnPos));
                 secondCounter = 0;
             }
         }
