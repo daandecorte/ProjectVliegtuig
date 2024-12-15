@@ -17,7 +17,14 @@ namespace ProjectVliegtuig.Gameobjects
         private float acceleration = 0.10f;
         private float deceleration = 0.98f;
 
-        public int health = 3;
+        private int _health = 3;
+
+        public virtual int health
+        {
+            get { return _health; }
+            set { _health = value; }
+        }
+
 
         public Texture2D box;
         public Enemy(Texture2D texture, Vector2 position)
@@ -35,9 +42,9 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Draw(SpriteBatch s)
         {
-            //s.Draw(box, new Rectangle((int)position.X-(int)origin.X, (int)position.Y-(int)origin.Y, (int)size.X, (int)size.Y), Color.White);
-            //s.Draw(box, position, new Rectangle((int)position.X, (int)position.Y, (int)origin.X, (int)origin.Y), Color.Red, rotation, origin, 1, SpriteEffects.None, 0.0f);
+            //s.Draw(box, new Rectangle((int)position.X+((int)Math.Sin(rotation)*50), (int)position.Y +((int)Math.Sin(rotation)*50), 10, 10), Color.White);
             s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
+            //s.Draw(box, position, new Rectangle(0, 0, 10, 10), Color.White);
         }
         public override void Update(GameTime gameTime)
         {
