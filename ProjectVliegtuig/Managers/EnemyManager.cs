@@ -75,7 +75,7 @@ namespace ProjectVliegtuig.Managers
                         spawnPos = new Vector2(DisplayManager.getDisplay().width + 100, random.Next(0, DisplayManager.getDisplay().height));
                         break;
                 }
-                ObjectList.Add(new Enemy(texture, spawnPos));
+                ObjectList.Add(new ShootingEnemy(texture, spawnPos));
                 secondCounter = 0;
             }
         }
