@@ -9,6 +9,7 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class Bullet: GameObject
     {
+        public static Texture2D texture;
         public Bullet(Vector2 direction, Vector2 position)
         {
             this.rotation = (float)Math.Atan2(direction.X, -direction.Y);
@@ -17,8 +18,8 @@ namespace ProjectVliegtuig.Gameobjects
             size = new Vector2(10, 10);
             this.position = position + (this.speed*5);
             this.origin = new Vector2(size.X / 2, size.Y / 2);
-            this.texture = new Texture2D(graphicsDevice, 1, 1);
-            this.texture.SetData(new[] { Color.Black});
+            texture = new Texture2D(graphicsDevice, 1, 1);
+            texture.SetData(new[] { Color.Black});
         }
         public override void Draw(SpriteBatch s)
         {

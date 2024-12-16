@@ -15,16 +15,12 @@ namespace ProjectVliegtuig.Managers
     {
         public override List<Enemy> ObjectList { get; set; } = new List<Enemy>();
         private static Random random = new Random();
-        private double secondCounter=10d;
-        private Texture2D texture;
-        public double SpawnInterval = 5;
-        public EnemyManager(Texture2D texture)
+        public EnemyManager()
         {
-            this.texture = texture;
+
         }
         public override void Update(GameTime gameTime)
         {
-            spawn(gameTime);
             for (int i = 0; i < ObjectList.Count; i++)
             {
                 ObjectList[i].Update(gameTime);
@@ -48,36 +44,22 @@ namespace ProjectVliegtuig.Managers
                 }
                 else if (ObjectList[i].Collide(Game1.plane))
                 {
+                    if (ObjectList[i] is BossEnemy)
+                    {
+                        ObjectList[i].health--;
+                    }
+                    else
+                    {
+                        ObjectList.RemoveAt(i);
+                        if (i > 0) i--;
+                    }
                     Game1.plane.health--;
-                    ObjectList.RemoveAt(i);
-                    if (i > 0) i--;
                 }
             }
         }
-        private void spawn(GameTime gameTime)
+        public void spawn(Enemy enemy)
         {
-            //secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-            Vector2 spawnPos = new Vector2();
-            if (secondCounter >= SpawnInterval)
-            {
-                switch(random.Next(0, 4))
-                {
-                    case 0:
-                        spawnPos = new Vector2(random.Next(0, DisplayManager.getDisplay().width), -100);
-                        break;
-                    case 1:
-                        spawnPos = new Vector2(random.Next(0, DisplayManager.getDisplay().width), DisplayManager.getDisplay().height + 100);
-                        break;
-                    case 2:
-                        spawnPos = new Vector2(-100, random.Next(0, DisplayManager.getDisplay().height));
-                        break;
-                    case 3:
-                        spawnPos = new Vector2(DisplayManager.getDisplay().width + 100, random.Next(0, DisplayManager.getDisplay().height));
-                        break;
-                }
-                ObjectList.Add(new BossEnemy(texture, spawnPos));
-                secondCounter = 0;
-            }
+            ObjectList.Add(enemy);
         }
     }
 }

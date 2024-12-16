@@ -1,4 +1,5 @@
-﻿using ProjectVliegtuig.Levels;
+﻿using ProjectVliegtuig.Interfaces;
+using ProjectVliegtuig.Levels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.LevelCreators
 {
-    internal class CreatorBossLevel : LevelCreator
+    internal class CreatorBossLevel : ILevelCreator
     {
-        public override Level CreateLevel()
+        public Level CreateLevel()
         {
-            return new BossLevel();
+            return new Level(3, 3, 1, 1000);
         }
     }
 }

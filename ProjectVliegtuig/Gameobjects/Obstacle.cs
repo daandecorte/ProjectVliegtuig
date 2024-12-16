@@ -11,12 +11,13 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class Obstacle : GameObject
     {
+        public static Texture2D texture;
         public Obstacle(Vector2 position)
         {
             this.position = position;
             size = new Vector2(50, 50);
-            this.texture = new Texture2D(graphicsDevice, 1, 1);
-            this.texture.SetData(new[] { Color.Black });
+            texture = new Texture2D(graphicsDevice, 1, 1);
+            texture.SetData(new[] { Color.Black });
         }
         public override void Draw(SpriteBatch s)
         {

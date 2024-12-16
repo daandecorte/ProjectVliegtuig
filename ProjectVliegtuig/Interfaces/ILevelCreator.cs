@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.LevelCreators
+namespace ProjectVliegtuig.Interfaces
 {
-    public abstract class LevelCreator
+    public interface ILevelCreator
     {
-        public abstract Level CreateLevel();
+        Level CreateLevel();
     }
 }

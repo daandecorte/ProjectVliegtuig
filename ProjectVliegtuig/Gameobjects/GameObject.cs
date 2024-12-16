@@ -12,7 +12,6 @@ namespace ProjectVliegtuig.Gameobjects
     public abstract class GameObject: IGameObject
     {
         public static GraphicsDevice graphicsDevice;
-        public Texture2D texture;
         public Vector2 speed;
         public Vector2 position;
         public float rotation;

@@ -20,7 +20,7 @@ namespace ProjectVliegtuig.Gameobjects
             set { _health = value; }
         }
 
-        public BossEnemy(Texture2D texture, Vector2 position) : base(texture, position)
+        public BossEnemy(Vector2 position) : base(position)
         {
         }
         protected override void Shoot(GameTime gameTime)
@@ -31,12 +31,12 @@ namespace ProjectVliegtuig.Gameobjects
                 Vector2 d = new Vector2((float)Math.Sin(rotation), -(float)Math.Cos(rotation));
                 if(left)
                 {
-                    BulletManager.BulletList.Add(new Bullet(d, new Vector2(position.X-(d.Y*50), position.Y+(d.X *50))));
+                    BulletManager.BulletList.Add(new Bullet(d, new Vector2(position.X - (d.Y * 50), position.Y + (d.X * 50))));
                     left = !left;
                 }
                 else
                 {
-                    BulletManager.BulletList.Add(new Bullet(d, new Vector2(position.X+(d.Y *50), position.Y - (d.X * 50))));
+                    BulletManager.BulletList.Add(new Bullet(d, new Vector2(position.X + (d.Y * 50), position.Y - (d.X * 50))));
                     left = !left;
                 }
                 secondCounter = 0;

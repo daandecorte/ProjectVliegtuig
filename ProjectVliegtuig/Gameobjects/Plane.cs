@@ -17,19 +17,18 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class Plane : GameObject
     {
+        public static Texture2D texture;
         private Animatie animatie;
         private float acceleration = 0.25f;
         private float deceleration = 0.98f;
         private bool pressed = false;
         private double secondCounter = 0;
         public int health = 3;
-        private Texture2D healthBar;
+        public static Texture2D healthBar;
 
         private Texture2D box;
-        public Plane(Texture2D texture, Texture2D healthBar)
+        public Plane()
         {
-            this.texture = texture;
-            this.healthBar = healthBar;
             position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
             size = new Vector2(texture.Width/6, texture.Height/3);
             origin = new Vector2(size.X / 2, size.Y / 2);

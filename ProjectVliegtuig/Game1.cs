@@ -4,6 +4,8 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.LevelCreators;
+using ProjectVliegtuig.Levels;
 using ProjectVliegtuig.Managers;
 
 namespace ProjectVliegtuig
@@ -22,7 +24,10 @@ namespace ProjectVliegtuig
         private Texture2D enemyPlane;
 
         public static Gameobjects.Plane plane;
-        EnemyManager enemyManager;
+        //EnemyManager enemyManager;
+        LevelCreatorFactory levelCreatorFactory;
+        int currentLevel = 3;
+        Level level;
 
         private bool isPlaying = false;
 
@@ -43,9 +48,9 @@ namespace ProjectVliegtuig
         {
             DisplayManager.getDisplay().Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            texture = Content.Load<Texture2D>("plane");
-            healthBar = Content.Load<Texture2D>("hearts");
-            enemyPlane = Content.Load<Texture2D>("enemy");
+            Gameobjects.Plane.texture = Content.Load<Texture2D>("plane");
+            Gameobjects.Plane.healthBar = Content.Load<Texture2D>("hearts");
+            Enemy.texture = Content.Load<Texture2D>("enemy");
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
             gameOverScreen = Content.Load<Texture2D>("gameover");
@@ -54,8 +59,9 @@ namespace ProjectVliegtuig
         }
         private void LoadGameObjects()
         {
-            plane = new Gameobjects.Plane(texture, healthBar);
-            enemyManager = new EnemyManager(enemyPlane);
+            plane = new Gameobjects.Plane();
+            //enemyManager = new EnemyManager();
+            levelCreatorFactory = new LevelCreatorFactory();
         }
 
         protected override void Update(GameTime gameTime)
@@ -68,6 +74,7 @@ namespace ProjectVliegtuig
             {
                 isPlaying = true;
                 plane.health = 3;
+                level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
             }
             if(plane.health<=0)
             {
@@ -77,7 +84,8 @@ namespace ProjectVliegtuig
             {
                 plane.Update(gameTime);
                 BulletManager.Update(gameTime);
-                enemyManager.Update(gameTime);
+                level.Update(gameTime);
+                //enemyManager.Update(gameTime);
                 //ObstacleSpawnManager.Update(gameTime);
             }
             base.Update(gameTime);
@@ -87,12 +95,13 @@ namespace ProjectVliegtuig
         {
             GraphicsDevice.Clear(Color.LightSkyBlue);
             _spriteBatch.Begin();
-            //_spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.Graphics.PreferredBackBufferWidth, DisplayManager.Graphics.PreferredBackBufferHeight), Color.White);
+            _spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
             if(isPlaying)
             {
                 plane.Draw(_spriteBatch);
                 BulletManager.Draw(_spriteBatch);
-                enemyManager.Draw(_spriteBatch);
+                level.Draw(_spriteBatch);
+                //enemyManager.Draw(_spriteBatch);
                 //ObstacleSpawnManager.Draw(_spriteBatch);
             }
             else

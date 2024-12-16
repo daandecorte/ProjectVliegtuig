@@ -13,6 +13,7 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class Enemy : GameObject
     {
+        public static Texture2D texture;
         private Vector2 direction;
         private float acceleration = 0.10f;
         private float deceleration = 0.98f;
@@ -27,18 +28,16 @@ namespace ProjectVliegtuig.Gameobjects
 
 
         public Texture2D box;
-        public Enemy(Texture2D texture, Vector2 position)
+        public Enemy(Vector2 position)
         {
             this.position = position;
             direction = new Vector2(0, 0);
 
-            this.texture = texture;
-
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
 
-            origin = new Vector2(this.texture.Width / 2, this.texture.Height/2);
-            size = new Vector2(this.texture.Width, this.texture.Height);
+            origin = new Vector2(texture.Width / 2, texture.Height/2);
+            size = new Vector2(texture.Width, texture.Height);
         }
         public override void Draw(SpriteBatch s)
         {

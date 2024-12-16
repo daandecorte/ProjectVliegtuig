@@ -13,7 +13,7 @@ namespace ProjectVliegtuig.Gameobjects
     internal class ShootingEnemy: Enemy
     {
         private double secondCounter=0;
-        public ShootingEnemy(Texture2D texture, Vector2 position): base(texture, position)
+        public ShootingEnemy(Vector2 position): base(position)
         {}
         protected override void Shoot(GameTime gameTime)
         {
