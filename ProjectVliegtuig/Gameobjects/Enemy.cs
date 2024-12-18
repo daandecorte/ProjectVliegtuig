@@ -90,7 +90,7 @@ namespace ProjectVliegtuig.Gameobjects
                 if (obj.position.Y + obj.origin.Y >= position.Y-origin.Y && obj.position.Y-obj.origin.Y <= position.Y + origin.Y)
                 {
                     health--;
-                    speed = (obj.speed/1.5f)+speed;
+                    speed = (obj.speed/2f)+speed;
                     return true;
                 }
             }

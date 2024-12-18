@@ -16,13 +16,17 @@ namespace ProjectVliegtuig.Levels
     {
         private int maxEnemyLevel;
         private int minEnemyLevel;
-        private int enemyCount;
         private int spawnInterval;
-        private int enemiesSpawned = 0;
         private EnemyManager enemyManager;
         private static Random random = new Random();
-        public bool started = false;
         private double secondCounter;
+
+        private int enemyCount;
+        private int enemiesSpawned = 0;
+        public bool started = false;
+
+        private bool MaxEnemiesSpawned { get => enemiesSpawned >= enemyCount; }
+        public bool LevelOver { get; private set; }
         public Level(int minEnemyLevel, int maxEnemyLevel, int enemyCount, int spawnInterval)
         {
             this.minEnemyLevel = minEnemyLevel-1;
@@ -48,27 +52,36 @@ namespace ProjectVliegtuig.Levels
         }
         private void spawn(GameTime gameTime)
         {
-            secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-            Vector2 spawnPos;
-            if (secondCounter >= spawnInterval)
+            if(!MaxEnemiesSpawned)
             {
-                spawnPos = randomSpawnPosition();
-                switch(random.Next(minEnemyLevel, maxEnemyLevel))
+                secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+                Vector2 spawnPos;
+                if (secondCounter >= spawnInterval)
                 {
-                    case 0:
-                        enemyManager.spawn(new Enemy(spawnPos));
-                        break;
-                    case 1:
-                        enemyManager.spawn(new ShootingEnemy(spawnPos));
-                        break;
-                    case 2:
-                        enemyManager.spawn(new BossEnemy(spawnPos));
-                        break;
-                    default:
-                        break;
+                    spawnPos = randomSpawnPosition();
+                    switch (random.Next(minEnemyLevel, maxEnemyLevel))
+                    {
+                        case 0:
+                            enemyManager.spawn(new Enemy(spawnPos));
+                            break;
+                        case 1:
+                            enemyManager.spawn(new ShootingEnemy(spawnPos));
+                            break;
+                        case 2:
+                            enemyManager.spawn(new BossEnemy(spawnPos));
+                            break;
+                        default:
+                            break;
+                    }
+                    secondCounter = 0;
+                    enemiesSpawned++;
                 }
-                secondCounter = 0;
-                enemiesSpawned = 0;
+            }else
+            {
+                if(enemyManager.ObjectList.Count==0)
+                {
+                    LevelOver = true;
+                }
             }
         }
         private Vector2 randomSpawnPosition()

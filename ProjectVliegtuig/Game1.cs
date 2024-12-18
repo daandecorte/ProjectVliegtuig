@@ -22,11 +22,12 @@ namespace ProjectVliegtuig
         private Texture2D startscreen;
         private Texture2D gameOverScreen;
         private Texture2D enemyPlane;
+        private Texture2D nextLevelScreen;
 
         public static Gameobjects.Plane plane;
         //EnemyManager enemyManager;
         LevelCreatorFactory levelCreatorFactory;
-        int currentLevel = 3;
+        int currentLevel = 1;
         Level level;
 
         private bool isPlaying = false;
@@ -54,13 +55,13 @@ namespace ProjectVliegtuig
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
             gameOverScreen = Content.Load<Texture2D>("gameover");
+            nextLevelScreen = Content.Load<Texture2D>("nextlevel");
             GameObject.graphicsDevice = GraphicsDevice;
             LoadGameObjects();
         }
         private void LoadGameObjects()
         {
             plane = new Gameobjects.Plane();
-            //enemyManager = new EnemyManager();
             levelCreatorFactory = new LevelCreatorFactory();
         }
 
@@ -79,14 +80,21 @@ namespace ProjectVliegtuig
             if(plane.health<=0)
             {
                 isPlaying = false;
+                currentLevel = 1;
             }
             if(isPlaying)
             {
                 plane.Update(gameTime);
                 BulletManager.Update(gameTime);
                 level.Update(gameTime);
-                //enemyManager.Update(gameTime);
-                //ObstacleSpawnManager.Update(gameTime);
+            }
+            if (level?.LevelOver==true) 
+            {
+                if(isPlaying)
+                {
+                    isPlaying = false;
+                    currentLevel++;
+                }
             }
             base.Update(gameTime);
         }
@@ -101,14 +109,16 @@ namespace ProjectVliegtuig
                 plane.Draw(_spriteBatch);
                 BulletManager.Draw(_spriteBatch);
                 level.Draw(_spriteBatch);
-                //enemyManager.Draw(_spriteBatch);
-                //ObstacleSpawnManager.Draw(_spriteBatch);
             }
             else
             {
                 if(plane.health<=0)
                 {
                     _spriteBatch.Draw(gameOverScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
+                }
+                else if(level?.LevelOver==true)
+                {
+                    _spriteBatch.Draw(nextLevelScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
                 else
                 {
