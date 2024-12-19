@@ -23,7 +23,7 @@ namespace ProjectVliegtuig.LevelCreators
                     return new CreatorBossLevel();
                     break;
                 default:
-                    throw new Exception();
+                    return null;
                     break;
             }
         }

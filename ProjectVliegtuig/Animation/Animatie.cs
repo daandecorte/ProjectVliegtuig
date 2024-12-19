@@ -11,7 +11,7 @@ namespace ProjectVliegtuig.Animation
     {
         public AnimationFrame CurrentFrame { get; set; }
         public List<AnimationFrame> frames;
-        private int counter;
+        private int counter=0;
         public Animatie()
         {
             frames = new List<AnimationFrame>();
@@ -51,6 +51,7 @@ namespace ProjectVliegtuig.Animation
                    new Rectangle(x, y, widthOfFrame, heightOfFrame)));
                 }
             }
+            CurrentFrame = frames[counter];
         }
     }
 }

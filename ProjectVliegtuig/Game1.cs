@@ -7,6 +7,7 @@ using ProjectVliegtuig.Gameobjects;
 using ProjectVliegtuig.LevelCreators;
 using ProjectVliegtuig.Levels;
 using ProjectVliegtuig.Managers;
+using System;
 
 namespace ProjectVliegtuig
 {
@@ -15,20 +16,17 @@ namespace ProjectVliegtuig
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        private Texture2D texture;
-        private Texture2D healthBar;
         private Texture2D background;
-        private Texture2D blockTexture;
         private Texture2D startscreen;
         private Texture2D gameOverScreen;
-        private Texture2D enemyPlane;
         private Texture2D nextLevelScreen;
 
         public static Gameobjects.Plane plane;
-        //EnemyManager enemyManager;
         LevelCreatorFactory levelCreatorFactory;
-        int currentLevel = 1;
+        public static int currentLevel = 1;
         Level level;
+
+        StartScreen startScreen;
 
         private bool isPlaying = false;
 
@@ -57,12 +55,19 @@ namespace ProjectVliegtuig
             gameOverScreen = Content.Load<Texture2D>("gameover");
             nextLevelScreen = Content.Load<Texture2D>("nextlevel");
             GameObject.graphicsDevice = GraphicsDevice;
+            Bullet.texture = Content.Load<Texture2D>("bullet");
+            Button.texture = Content.Load<Texture2D>("button");
+            Button.font = Content.Load<SpriteFont>("font");
             LoadGameObjects();
         }
         private void LoadGameObjects()
         {
             plane = new Gameobjects.Plane();
             levelCreatorFactory = new LevelCreatorFactory();
+            startScreen = new StartScreen();
+            startScreen.exitButton.Click += ExitButton_Click;
+            startScreen.currentLevelButton.Click += CurrentLevelButton_Click;
+            startScreen.bossLevelButton.Click += BossLevelButton_Click;
         }
 
         protected override void Update(GameTime gameTime)
@@ -73,9 +78,7 @@ namespace ProjectVliegtuig
             }
             if(Keyboard.GetState().IsKeyDown(Keys.Enter) && !isPlaying)
             {
-                isPlaying = true;
-                plane.health = 3;
-                level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
+                StartLevel();
             }
             if(plane.health<=0)
             {
@@ -87,6 +90,10 @@ namespace ProjectVliegtuig
                 plane.Update(gameTime);
                 BulletManager.Update(gameTime);
                 level.Update(gameTime);
+            }
+            else
+            {
+                startScreen.Update();
             }
             if (level?.LevelOver==true) 
             {
@@ -112,22 +119,47 @@ namespace ProjectVliegtuig
             }
             else
             {
-                if(plane.health<=0)
+                if (plane.health <= 0)
                 {
                     _spriteBatch.Draw(gameOverScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
-                }
-                else if(level?.LevelOver==true)
-                {
-                    _spriteBatch.Draw(nextLevelScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
                 else
                 {
                     _spriteBatch.Draw(startscreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
+                startScreen.Draw(_spriteBatch);
+
             }
             _spriteBatch.End();
 
             base.Draw(gameTime);
         }
+        #region buttonFunctions
+        private void ExitButton_Click(object sender, EventArgs e)
+        {
+            Exit();
+        }
+        private void CurrentLevelButton_Click(object sender, EventArgs e)
+        {
+            if(!isPlaying) StartLevel();
+        }
+        private void BossLevelButton_Click(object sender, EventArgs e)
+        {
+            if(!isPlaying)
+            {
+                currentLevel = 3;
+                StartLevel();
+            }
+        }
+        private void StartLevel()
+        {
+            isPlaying = true;
+            plane.health = 3;
+            if (levelCreatorFactory.GetLevelCreator(currentLevel) == null) currentLevel = 1;
+            level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
+            level.StartLevel();
+        }
+        #endregion
+
     }
 }

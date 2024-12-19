@@ -36,7 +36,7 @@ namespace ProjectVliegtuig.Gameobjects
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
-
+            Debug.Write("animatie");
             animatie = new Animatie();
             animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
         }

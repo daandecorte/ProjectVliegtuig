@@ -23,7 +23,7 @@ namespace ProjectVliegtuig.Levels
 
         private int enemyCount;
         private int enemiesSpawned = 0;
-        public bool started = false;
+        public bool started { get; private set; } = false;
 
         private bool MaxEnemiesSpawned { get => enemiesSpawned >= enemyCount; }
         public bool LevelOver { get; private set; }
