@@ -9,11 +9,14 @@ using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace ProjectVliegtuig.Levels
 {
     public class Level
     {
+        public static SpriteFont Font;
+        public static Texture2D winscreen;
         private int maxEnemyLevel;
         private int minEnemyLevel;
         private int spawnInterval;
@@ -23,6 +26,7 @@ namespace ProjectVliegtuig.Levels
 
         private int enemyCount;
         private int enemiesSpawned = 0;
+        private bool won = false;
         public bool started { get; private set; } = false;
 
         private bool MaxEnemiesSpawned { get => enemiesSpawned >= enemyCount; }
@@ -48,6 +52,8 @@ namespace ProjectVliegtuig.Levels
         }
         public void Draw(SpriteBatch spriteBatch)
         {
+            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + enemyManager.ObjectList.Count} Enemies Remaining", new Vector2(1700, 10), Color.Black);
+            if (won) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
             enemyManager.Draw(spriteBatch);
         }
         private void spawn(GameTime gameTime)
@@ -80,7 +86,12 @@ namespace ProjectVliegtuig.Levels
             {
                 if(enemyManager.ObjectList.Count==0)
                 {
-                    LevelOver = true;
+                    won = true;
+                    secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
+                    if(secondCounter>=1)
+                    {
+                        LevelOver = true;
+                    }
                 }
             }
         }

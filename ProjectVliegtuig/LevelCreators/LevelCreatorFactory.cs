@@ -15,16 +15,14 @@ namespace ProjectVliegtuig.LevelCreators
             {
                 case 1:
                     return new CreatorLevel1();
-                    break;
                 case 2:
                     return new CreatorLevel2();
-                    break;
                 case 3:
+                    return new CreatorLevel3();
+                case 4:
                     return new CreatorBossLevel();
-                    break;
                 default:
                     return null;
-                    break;
             }
         }
     }

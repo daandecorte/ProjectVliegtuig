@@ -19,7 +19,6 @@ namespace ProjectVliegtuig
         private Texture2D background;
         private Texture2D startscreen;
         private Texture2D gameOverScreen;
-        private Texture2D nextLevelScreen;
 
         public static Gameobjects.Plane plane;
         LevelCreatorFactory levelCreatorFactory;
@@ -47,17 +46,21 @@ namespace ProjectVliegtuig
         {
             DisplayManager.getDisplay().Apply();
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            GameObject.graphicsDevice = GraphicsDevice;
+
             Gameobjects.Plane.texture = Content.Load<Texture2D>("plane");
             Gameobjects.Plane.healthBar = Content.Load<Texture2D>("hearts");
             Enemy.texture = Content.Load<Texture2D>("enemy");
+            ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
+            BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
             background = Content.Load<Texture2D>("background");
             startscreen = Content.Load<Texture2D>("start");
             gameOverScreen = Content.Load<Texture2D>("gameover");
-            nextLevelScreen = Content.Load<Texture2D>("nextlevel");
-            GameObject.graphicsDevice = GraphicsDevice;
+            Level.winscreen = Content.Load<Texture2D>("winscreen");
             Bullet.texture = Content.Load<Texture2D>("bullet");
             Button.texture = Content.Load<Texture2D>("button");
             Button.font = Content.Load<SpriteFont>("font");
+            Level.Font = Content.Load<SpriteFont>("font");
             LoadGameObjects();
         }
         private void LoadGameObjects()
@@ -80,7 +83,11 @@ namespace ProjectVliegtuig
             {
                 StartLevel();
             }
-            if(plane.health<=0)
+            if(Keyboard.GetState().IsKeyDown(Keys.P)&&isPlaying)
+            {
+                isPlaying = false;
+            }
+            if (plane.health<=0)
             {
                 isPlaying = false;
                 currentLevel = 1;
@@ -101,6 +108,7 @@ namespace ProjectVliegtuig
                 {
                     isPlaying = false;
                     currentLevel++;
+                    if (levelCreatorFactory.GetLevelCreator(currentLevel) == null) currentLevel = 1;
                 }
             }
             base.Update(gameTime);
@@ -151,15 +159,14 @@ namespace ProjectVliegtuig
                 StartLevel();
             }
         }
+
+        #endregion
         private void StartLevel()
         {
             isPlaying = true;
             plane.health = 3;
-            if (levelCreatorFactory.GetLevelCreator(currentLevel) == null) currentLevel = 1;
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
             level.StartLevel();
         }
-        #endregion
-
     }
 }

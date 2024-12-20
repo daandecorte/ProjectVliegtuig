@@ -11,6 +11,7 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public class BossEnemy: Enemy
     {
+        public static new Texture2D texture;
         private int _health = 10;
         private double secondCounter = 0;
         private bool left = true;
@@ -19,10 +20,13 @@ namespace ProjectVliegtuig.Gameobjects
             get { return _health; }
             set { _health = value; }
         }
+        protected override Texture2D _texture 
+        {
+            get => texture;
+        }
 
         public BossEnemy(Vector2 position) : base(position)
-        {
-        }
+        {}
         protected override void Shoot(GameTime gameTime)
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;

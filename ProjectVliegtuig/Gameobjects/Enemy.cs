@@ -6,6 +6,8 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,8 +27,10 @@ namespace ProjectVliegtuig.Gameobjects
             get { return _health; }
             set { _health = value; }
         }
-
-
+        protected virtual Texture2D _texture
+        {
+            get => texture;
+        }
         public Texture2D box;
         public Enemy(Vector2 position)
         {
@@ -36,17 +40,18 @@ namespace ProjectVliegtuig.Gameobjects
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
 
-            origin = new Vector2(texture.Width / 2, texture.Height/2);
-            size = new Vector2(texture.Width, texture.Height);
+            origin = new Vector2(_texture.Width / 2, _texture.Height/2);
+            size = new Vector2(_texture.Width, _texture.Height);
+
         }
         public override void Draw(SpriteBatch s)
         {
-            //s.Draw(box, new Rectangle((int)position.X+((int)Math.Sin(rotation)*50), (int)position.Y +((int)Math.Sin(rotation)*50), 10, 10), Color.White);
-            s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
-            //s.Draw(box, position, new Rectangle(0, 0, 10, 10), Color.White);
+            //s.Draw(box, rectangle, Color.White);
+            s.Draw(_texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
         {
+            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)(size.X), (int)(size.Y));
             if (Game1.plane.position.X > position.X)
             {
                 direction.X = 1;
@@ -85,14 +90,15 @@ namespace ProjectVliegtuig.Gameobjects
                 obj = o as Plane;
             } 
             else return false;
-            if (obj.position.X + obj.origin.X >= position.X-origin.X && obj.position.X-obj.origin.X <= position.X + origin.X) 
+            if(rectangle.Intersects(obj.rectangle))
+            //if (obj.position.X + obj.origin.X >= position.X-origin.X && obj.position.X-obj.origin.X <= position.X + origin.X) 
             {
-                if (obj.position.Y + obj.origin.Y >= position.Y-origin.Y && obj.position.Y-obj.origin.Y <= position.Y + origin.Y)
-                {
+                //if (obj.position.Y + obj.origin.Y >= position.Y-origin.Y && obj.position.Y-obj.origin.Y <= position.Y + origin.Y)
+                //{
                     health--;
                     speed = (obj.speed/2f)+speed;
                     return true;
-                }
+                //}
             }
             return false;
         }

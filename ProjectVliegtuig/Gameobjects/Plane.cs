@@ -36,13 +36,13 @@ namespace ProjectVliegtuig.Gameobjects
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
-            Debug.Write("animatie");
+
             animatie = new Animatie();
             animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
         }
         public override void Draw(SpriteBatch s)
         {
-            //s.Draw(box, new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y), Color.White);
+            //s.Draw(box, rectangle, Color.White);
 
             s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
@@ -50,6 +50,7 @@ namespace ProjectVliegtuig.Gameobjects
 
         public override void Update(GameTime gameTime)
         {
+            rectangle = new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y);
             animatie.Update(gameTime);
             Shoot(gameTime);
             Move();
@@ -103,14 +104,15 @@ namespace ProjectVliegtuig.Gameobjects
             for (int i = 0; i < BulletManager.BulletList.Count; i++)
             {
                 Bullet bullet = BulletManager.BulletList[i];
-                if (bullet.position.X + bullet.origin.X >= position.X - origin.X && bullet.position.X - bullet.origin.X <= position.X + origin.X)
+                if(rectangle.Intersects(bullet.rectangle))
+                //if (bullet.position.X + bullet.origin.X >= position.X - origin.X && bullet.position.X - bullet.origin.X <= position.X + origin.X)
                 {
-                    if (bullet.position.Y + bullet.origin.Y >= position.Y - origin.Y && bullet.position.Y - bullet.origin.Y <= position.Y + origin.Y)
-                    {
+                    //if (bullet.position.Y + bullet.origin.Y >= position.Y - origin.Y && bullet.position.Y - bullet.origin.Y <= position.Y + origin.Y)
+                    //{
                         health--;
                         BulletManager.BulletList.RemoveAt(i);
                         if(i>0) i--;
-                    }
+                    //}
                 }
             }
         }

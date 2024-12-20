@@ -25,6 +25,18 @@
 /processorParam:TextureFormat=Color
 /build:background.png
 
+#begin bossenemy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:bossenemy.png
+
 #begin bullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -116,6 +128,18 @@
 /processorParam:TextureFormat=Color
 /build:plane.png
 
+#begin shootingenemy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:shootingenemy.png
+
 #begin start.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -127,4 +151,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:start.png
+
+#begin winscreen.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:winscreen.png
 
