@@ -20,6 +20,8 @@ namespace ProjectVliegtuig.LevelCreators
                 case 3:
                     return new CreatorLevel3();
                 case 4:
+                    return new CreatorLevel4();
+                case 5:
                     return new CreatorBossLevel();
                 default:
                     return null;

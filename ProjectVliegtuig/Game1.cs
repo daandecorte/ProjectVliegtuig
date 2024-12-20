@@ -17,12 +17,14 @@ namespace ProjectVliegtuig
         private SpriteBatch _spriteBatch;
 
         private Texture2D background;
-        private Texture2D startscreen;
+        private Texture2D pauzescreen;
         private Texture2D gameOverScreen;
 
         public static Gameobjects.Plane plane;
         LevelCreatorFactory levelCreatorFactory;
         public static int currentLevel = 1;
+        private int bossLevel = 0;
+        public static int lastLevel = 1;
         Level level;
 
         StartScreen startScreen;
@@ -54,7 +56,7 @@ namespace ProjectVliegtuig
             ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
             BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
             background = Content.Load<Texture2D>("background");
-            startscreen = Content.Load<Texture2D>("start");
+            pauzescreen = Content.Load<Texture2D>("start");
             gameOverScreen = Content.Load<Texture2D>("gameover");
             Level.winscreen = Content.Load<Texture2D>("winscreen");
             Bullet.texture = Content.Load<Texture2D>("bullet");
@@ -71,6 +73,7 @@ namespace ProjectVliegtuig
             startScreen.exitButton.Click += ExitButton_Click;
             startScreen.currentLevelButton.Click += CurrentLevelButton_Click;
             startScreen.bossLevelButton.Click += BossLevelButton_Click;
+            startScreen.replayButton.Click += ReplayButton_Click;
         }
 
         protected override void Update(GameTime gameTime)
@@ -79,37 +82,39 @@ namespace ProjectVliegtuig
             {
                 Exit(); 
             }
-            if(Keyboard.GetState().IsKeyDown(Keys.Enter) && !isPlaying)
-            {
-                StartLevel();
-            }
-            if(Keyboard.GetState().IsKeyDown(Keys.P)&&isPlaying)
-            {
-                isPlaying = false;
-            }
-            if (plane.health<=0)
-            {
-                isPlaying = false;
-                currentLevel = 1;
-            }
+
+
             if(isPlaying)
             {
+                if (Keyboard.GetState().IsKeyDown(Keys.P))
+                {
+                    isPlaying = false;
+                }
+                if (plane.health <= 0)
+                {
+                    isPlaying = false;
+                    lastLevel = currentLevel;
+                    currentLevel = 1;
+                }
                 plane.Update(gameTime);
                 BulletManager.Update(gameTime);
                 level.Update(gameTime);
+                if (level?.LevelOver == true)
+                {
+                    isPlaying = false;
+                    lastLevel = currentLevel;
+                    currentLevel++;
+                    if (levelCreatorFactory.GetLevelCreator(currentLevel) is CreatorBossLevel) bossLevel = currentLevel;
+                    if (levelCreatorFactory.GetLevelCreator(currentLevel) == null) currentLevel = 1;
+                }
             }
             else
             {
-                startScreen.Update();
-            }
-            if (level?.LevelOver==true) 
-            {
-                if(isPlaying)
+                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
                 {
-                    isPlaying = false;
-                    currentLevel++;
-                    if (levelCreatorFactory.GetLevelCreator(currentLevel) == null) currentLevel = 1;
+                    StartLevel();
                 }
+                startScreen.Update();
             }
             base.Update(gameTime);
         }
@@ -124,6 +129,7 @@ namespace ProjectVliegtuig
                 plane.Draw(_spriteBatch);
                 BulletManager.Draw(_spriteBatch);
                 level.Draw(_spriteBatch);
+                IsMouseVisible = false;
             }
             else
             {
@@ -133,9 +139,10 @@ namespace ProjectVliegtuig
                 }
                 else
                 {
-                    _spriteBatch.Draw(startscreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
+                    _spriteBatch.Draw(pauzescreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
                 startScreen.Draw(_spriteBatch);
+                IsMouseVisible = true;
 
             }
             _spriteBatch.End();
@@ -155,7 +162,15 @@ namespace ProjectVliegtuig
         {
             if(!isPlaying)
             {
-                currentLevel = 3;
+                currentLevel = bossLevel;
+                StartLevel();
+            }
+        }
+        private void ReplayButton_Click(object sender, EventArgs e)
+        {
+            if (!isPlaying)
+            {
+                currentLevel=lastLevel;
                 StartLevel();
             }
         }
