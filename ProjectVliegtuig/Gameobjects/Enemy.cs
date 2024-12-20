@@ -17,8 +17,8 @@ namespace ProjectVliegtuig.Gameobjects
     {
         public static Texture2D texture;
         private Vector2 direction;
-        private float acceleration = 0.10f;
-        private float deceleration = 0.98f;
+        protected float acceleration = 0.10f;
+        protected float deceleration = 0.98f;
 
         private int _health = 3;
 
@@ -91,14 +91,10 @@ namespace ProjectVliegtuig.Gameobjects
             } 
             else return false;
             if(rectangle.Intersects(obj.rectangle))
-            //if (obj.position.X + obj.origin.X >= position.X-origin.X && obj.position.X-obj.origin.X <= position.X + origin.X) 
             {
-                //if (obj.position.Y + obj.origin.Y >= position.Y-origin.Y && obj.position.Y-obj.origin.Y <= position.Y + origin.Y)
-                //{
-                    health--;
-                    speed = (obj.speed/2f)+speed;
-                    return true;
-                //}
+                health--;
+                speed = (obj.speed/2f)+speed;
+                return true;
             }
             return false;
         }

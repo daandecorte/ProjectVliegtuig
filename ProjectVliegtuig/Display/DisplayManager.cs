@@ -21,7 +21,7 @@ namespace ProjectVliegtuig.Display
             graphicsDeviceManager = graphics;
             fullScreenRectangle = new Rectangle(0, 0, width, height);
         }
-        public static void init(GraphicsDeviceManager graphics)
+        public static void Init(GraphicsDeviceManager graphics)
         {
             if(displayManager == null)
             {
@@ -41,7 +41,7 @@ namespace ProjectVliegtuig.Display
         {
             if(graphicsDeviceManager != null)
             {
-                graphicsDeviceManager.IsFullScreen = false;
+                graphicsDeviceManager.IsFullScreen = true;
                 graphicsDeviceManager.PreferredBackBufferWidth = width;
                 graphicsDeviceManager.PreferredBackBufferHeight = height;
                 graphicsDeviceManager.ApplyChanges();

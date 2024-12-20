@@ -26,11 +26,13 @@ namespace ProjectVliegtuig.Gameobjects
         }
 
         public BossEnemy(Vector2 position) : base(position)
-        {}
+        {
+            acceleration = 0.15f;
+        }
         protected override void Shoot(GameTime gameTime)
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-            if (secondCounter >= 0.2d)
+            if (secondCounter >= 0.15d)
             {
                 Vector2 d = new Vector2((float)Math.Sin(rotation), -(float)Math.Cos(rotation));
                 if(left)

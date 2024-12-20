@@ -12,7 +12,7 @@ namespace ProjectVliegtuig.LevelCreators
     {
         public Level CreateLevel()
         {
-            return new Level(1, 2, 10, 1);
+            return new Level(2, 2, 4, 2);
         }
     }
 }

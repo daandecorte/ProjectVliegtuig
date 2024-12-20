@@ -105,15 +105,11 @@ namespace ProjectVliegtuig.Gameobjects
             {
                 Bullet bullet = BulletManager.BulletList[i];
                 if(rectangle.Intersects(bullet.rectangle))
-                //if (bullet.position.X + bullet.origin.X >= position.X - origin.X && bullet.position.X - bullet.origin.X <= position.X + origin.X)
                 {
-                    //if (bullet.position.Y + bullet.origin.Y >= position.Y - origin.Y && bullet.position.Y - bullet.origin.Y <= position.Y + origin.Y)
-                    //{
-                        health--;
-                        speed = (bullet.speed / 2f) + speed;
-                        BulletManager.BulletList.RemoveAt(i);
-                        if(i>0) i--;
-                    //}
+                    health--;
+                    speed = (bullet.speed / 2f) + speed;
+                    BulletManager.BulletList.RemoveAt(i);
+                    if(i>0) i--;
                 }
             }
         }

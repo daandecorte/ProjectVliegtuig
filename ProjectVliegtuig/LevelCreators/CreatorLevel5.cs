@@ -3,16 +3,17 @@ using ProjectVliegtuig.Levels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.LevelCreators
 {
-    internal class CreatorLevel3 : ILevelCreator
+    internal class CreatorLevel5 : ILevelCreator
     {
         public Level CreateLevel()
         {
-            return new Level(1, 2, 6, 4);
+            return new Level(1, 2, 8, 1);
         }
     }
 }

@@ -27,14 +27,12 @@ namespace ProjectVliegtuig
         public static int lastLevel = 1;
         Level level;
 
-        StartScreen startScreen;
-
         private bool isPlaying = false;
-
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            DisplayManager.init(_graphics);
+            DisplayManager.Init(_graphics);
+            StartScreen.Init();
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
@@ -43,7 +41,6 @@ namespace ProjectVliegtuig
         {   
             base.Initialize();
         }
-
         protected override void LoadContent()
         {
             DisplayManager.getDisplay().Apply();
@@ -69,11 +66,10 @@ namespace ProjectVliegtuig
         {
             plane = new Gameobjects.Plane();
             levelCreatorFactory = new LevelCreatorFactory();
-            startScreen = new StartScreen();
-            startScreen.exitButton.Click += ExitButton_Click;
-            startScreen.currentLevelButton.Click += CurrentLevelButton_Click;
-            startScreen.bossLevelButton.Click += BossLevelButton_Click;
-            startScreen.replayButton.Click += ReplayButton_Click;
+            StartScreen.GetStartScreen().exitButton.Click += ExitButton_Click;
+            StartScreen.GetStartScreen().currentLevelButton.Click += CurrentLevelButton_Click;
+            StartScreen.GetStartScreen().bossLevelButton.Click += BossLevelButton_Click;
+            StartScreen.GetStartScreen().replayButton.Click += ReplayButton_Click;
         }
 
         protected override void Update(GameTime gameTime)
@@ -82,7 +78,6 @@ namespace ProjectVliegtuig
             {
                 Exit(); 
             }
-
 
             if(isPlaying)
             {
@@ -114,7 +109,7 @@ namespace ProjectVliegtuig
                 {
                     StartLevel();
                 }
-                startScreen.Update();
+                StartScreen.Update();
             }
             base.Update(gameTime);
         }
@@ -141,7 +136,7 @@ namespace ProjectVliegtuig
                 {
                     _spriteBatch.Draw(pauzescreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
                 }
-                startScreen.Draw(_spriteBatch);
+                StartScreen.Draw(_spriteBatch);
                 IsMouseVisible = true;
 
             }
@@ -178,6 +173,7 @@ namespace ProjectVliegtuig
         #endregion
         private void StartLevel()
         {
+            BulletManager.BulletList.Clear();
             isPlaying = true;
             plane.health = 3;
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
