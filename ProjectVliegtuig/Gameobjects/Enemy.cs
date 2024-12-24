@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Gameobjects
 {
-    public class Enemy : GameObject
+    public class Enemy : Plane
     {
         public static Texture2D texture;
         private Vector2 direction;
@@ -52,19 +52,19 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Update(GameTime gameTime)
         {
             rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)(size.X), (int)(size.Y));
-            if (Game1.plane.position.X > position.X)
+            if (Game1.player.position.X > position.X)
             {
                 direction.X = 1;
             }
-            if (Game1.plane.position.X < position.X)
+            if (Game1.player.position.X < position.X)
             {
                 direction.X = -1;
             }
-            if (Game1.plane.position.Y > position.Y)
+            if (Game1.player.position.Y > position.Y)
             {
                 direction.Y = 1;
             }
-            if (Game1.plane.position.Y < position.Y)
+            if (Game1.player.position.Y < position.Y)
             {
                 direction.Y = -1;
             }
@@ -85,20 +85,21 @@ namespace ProjectVliegtuig.Gameobjects
             {
                 obj = o as Bullet;
             }
-            else if (o is Plane) 
+            else if (o is Player) 
             {
-                obj = o as Plane;
+                obj = o as Player;
             } 
             else return false;
             if(rectangle.Intersects(obj.rectangle))
             {
                 health--;
                 speed = (obj.speed/2f)+speed;
+                obj.speed = speed + obj.speed;
                 return true;
             }
             return false;
         }
-        protected virtual void Shoot(GameTime gameTime)
+        protected override void Shoot(GameTime gameTime)
         {
             
         }

@@ -13,12 +13,12 @@ namespace ProjectVliegtuig.Managers
 {
     public class EnemyManager : Manager<Enemy>
     {
-        public override List<Enemy> ObjectList { get; set; } = new List<Enemy>();
-        private static Random random = new Random();
+        //public override List<Enemy> ObjectList { get; set; } = new List<Enemy>();
         public EnemyManager()
         {
-
+            ObjectList = new List<Enemy>();
         }
+
         public override void Update(GameTime gameTime)
         {
             for (int i = 0; i < ObjectList.Count; i++)
@@ -26,23 +26,23 @@ namespace ProjectVliegtuig.Managers
                 ObjectList[i].Update(gameTime);
                 for (int j = 0; j<BulletManager.BulletList.Count; j++)
                 {
-                    try
-                    {
+                    //try
+                    //{
                         if (ObjectList[i].Collide(BulletManager.BulletList[j]))
                         {
                             BulletManager.BulletList.Remove(BulletManager.BulletList[j]);
                             j--;
                         }
-                    }
-                    catch (Exception e)
-                    { }
+                    //}
+                    //catch (Exception)
+                    //{ }
                 }
                 if (ObjectList[i].health <= 0)
                 {
                     ObjectList.RemoveAt(i);
                     if (i > 0) i--;
                 }
-                else if (ObjectList[i].Collide(Game1.plane))
+                else if (ObjectList[i].Collide(Game1.player))
                 {
                     if (ObjectList[i] is BossEnemy)
                     {
@@ -53,7 +53,7 @@ namespace ProjectVliegtuig.Managers
                         ObjectList.RemoveAt(i);
                         if (i > 0) i--;
                     }
-                    Game1.plane.health--;
+                    Game1.player.health--;
                 }
             }
         }

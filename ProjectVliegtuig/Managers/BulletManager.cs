@@ -6,24 +6,34 @@ using ProjectVliegtuig.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Managers
 {
-    public static class BulletManager
+    public class BulletManager: Manager<Bullet>
     {
-        public static List<Bullet> BulletList { get; set; } = new List<Bullet>();
+        private static BulletManager bulletManager;
+        public static List<Bullet> BulletList { get => bulletManager.ObjectList; }
 
-        public static void Draw(SpriteBatch s)
+        private BulletManager()
         {
-            foreach (var bullet in BulletList)
+            ObjectList = new List<Bullet>();
+        }
+        public static void Init()
+        {
+            if(bulletManager==null)
             {
-                bullet.Draw(s);
+                bulletManager = new BulletManager();
             }
         }
-        public static void Update(GameTime gameTime)
+        public static BulletManager GetBulletManager()
+        {
+            return bulletManager;
+        }
+        public override void Update(GameTime gameTime)
         {
             for (int i = 0; i < BulletList.Count; i++)
             {

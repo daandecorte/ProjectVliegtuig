@@ -12,7 +12,7 @@ namespace ProjectVliegtuig.Managers
 {
     public abstract class Manager<T>: IGameObject where T:IGameObject
     {
-        public abstract List<T> ObjectList { get; set; }
+        public List<T> ObjectList { get; set; }
 
         public virtual void Update(GameTime gameTime)
         {
