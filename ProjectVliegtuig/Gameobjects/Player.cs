@@ -19,16 +19,17 @@ namespace ProjectVliegtuig.Gameobjects
     {
         public static Texture2D texture;
         private Animatie animatie;
-        private float acceleration = 0.25f;
-        private float deceleration = 0.98f;
+
         private bool pressed = false;
-        private double secondCounter = 0;
-        public int health = 3;
         public static Texture2D healthBar;
+
+        KeyboardReader keyboard = new KeyboardReader();
 
         private Texture2D box;
         public Player()
         {
+            acceleration = 0.25f;
+            deceleration = 0.98f;
             position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
             size = new Vector2(texture.Width/6, texture.Height/3);
             origin = new Vector2(size.X / 2, size.Y / 2);
@@ -56,11 +57,11 @@ namespace ProjectVliegtuig.Gameobjects
             Move();
             Collide();
         }
-        private void Move()
+        protected override void Move()
         {
-            KeyboardReader keyboard = new KeyboardReader();
+            direction = keyboard.ReadInput();
 
-            speed += Vector2.Multiply(keyboard.ReadInput(), acceleration);
+            base.Move();
 
             if (!(position.Y >= origin.Y && position.Y <= DisplayManager.getDisplay().height - origin.Y))
             {
@@ -74,9 +75,6 @@ namespace ProjectVliegtuig.Gameobjects
                 else if (position.X >= DisplayManager.getDisplay().width - origin.X) { position.X--; }
                 speed.X = -speed.X;
             }
-            speed *= deceleration;
-            position += speed;
-            rotation = (float)Math.Atan2(speed.X, -speed.Y);
         }
         protected override void Shoot(GameTime gameTime)
         {

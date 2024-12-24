@@ -13,7 +13,6 @@ namespace ProjectVliegtuig.Gameobjects
     internal class ShootingEnemy: Enemy
     {
         public static new Texture2D texture;
-        private double secondCounter=0;
         protected override Texture2D _texture
         {
             get => texture;

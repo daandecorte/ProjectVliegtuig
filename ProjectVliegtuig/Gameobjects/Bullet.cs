@@ -31,7 +31,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Update(GameTime gameTime)
         {
-            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)(size.X), (int)(size.Y));
+            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
             Move();
         }
         private void Move()

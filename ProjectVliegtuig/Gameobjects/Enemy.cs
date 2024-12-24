@@ -16,22 +16,12 @@ namespace ProjectVliegtuig.Gameobjects
     public class Enemy : Plane
     {
         public static Texture2D texture;
-        private Vector2 direction;
-        protected float acceleration = 0.10f;
-        protected float deceleration = 0.98f;
+        public Texture2D box;
 
-        private int _health = 3;
-
-        public virtual int health
-        {
-            get { return _health; }
-            set { _health = value; }
-        }
         protected virtual Texture2D _texture
         {
             get => texture;
         }
-        public Texture2D box;
         public Enemy(Vector2 position)
         {
             this.position = position;
@@ -42,7 +32,6 @@ namespace ProjectVliegtuig.Gameobjects
 
             origin = new Vector2(_texture.Width / 2, _texture.Height/2);
             size = new Vector2(_texture.Width, _texture.Height);
-
         }
         public override void Draw(SpriteBatch s)
         {
@@ -51,7 +40,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Update(GameTime gameTime)
         {
-            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)(size.X), (int)(size.Y));
+            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
             if (Game1.player.position.X > position.X)
             {
                 direction.X = 1;
@@ -70,13 +59,6 @@ namespace ProjectVliegtuig.Gameobjects
             }
             Move();
             Shoot(gameTime);
-        }
-        private void Move()
-        {
-            speed += direction * acceleration;
-            speed *= deceleration;
-            position += speed;
-            rotation = (float)Math.Atan2(speed.X, -speed.Y);
         }
         public bool Collide(object o)
         {
