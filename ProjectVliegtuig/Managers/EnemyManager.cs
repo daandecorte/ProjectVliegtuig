@@ -13,7 +13,6 @@ namespace ProjectVliegtuig.Managers
 {
     public class EnemyManager : Manager<Enemy>
     {
-        //public override List<Enemy> ObjectList { get; set; } = new List<Enemy>();
         public EnemyManager()
         {
             ObjectList = new List<Enemy>();
@@ -26,16 +25,11 @@ namespace ProjectVliegtuig.Managers
                 ObjectList[i].Update(gameTime);
                 for (int j = 0; j<BulletManager.BulletList.Count; j++)
                 {
-                    //try
-                    //{
-                        if (ObjectList[i].Collide(BulletManager.BulletList[j]))
-                        {
-                            BulletManager.BulletList.Remove(BulletManager.BulletList[j]);
-                            j--;
-                        }
-                    //}
-                    //catch (Exception)
-                    //{ }
+                    if (ObjectList[i].Collide(BulletManager.BulletList[j]))
+                    {
+                        BulletManager.BulletList.Remove(BulletManager.BulletList[j]);
+                        j--;
+                    }
                 }
                 if (ObjectList[i].health <= 0)
                 {

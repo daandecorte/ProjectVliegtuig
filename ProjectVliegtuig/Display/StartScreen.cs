@@ -11,10 +11,11 @@ namespace ProjectVliegtuig.Display
 {
     public class StartScreen
     {
-        public Button currentLevelButton = new Button() {Position=new Vector2(DisplayManager.getDisplay().width/2-100, DisplayManager.getDisplay().height/2-250) };
-        public Button replayButton = new Button() { Position = new Vector2(DisplayManager.getDisplay().width/2 - 100, DisplayManager.getDisplay().height/2-100), enabled=false };
-        public Button bossLevelButton = new Button() { Text="Boss Level\n   [locked]", Position=new Vector2(DisplayManager.getDisplay().width/2 - 100, DisplayManager.getDisplay().height/2+50), enabled=false};
-        public Button exitButton = new Button() { Text="Exit", Position=new Vector2(DisplayManager.getDisplay().width/2 - 100, DisplayManager.getDisplay().height/2+200) };
+        public static SpriteFont Font;
+        public Button currentLevelButton = new Button() { Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 250) };
+        public Button replayButton = new Button() { Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 100), enabled = false };
+        public Button bossLevelButton = new Button() { Text = "Boss Level\n   [locked]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 50), enabled = false };
+        public Button exitButton = new Button() { Text = " Exit\n[esc]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 200) };
         private List<Button> buttons;
 
         private static StartScreen startScreen;
@@ -41,6 +42,7 @@ namespace ProjectVliegtuig.Display
             {
                 button.Draw(s);
             }
+            ShowInfo(s);
         }
         public static void Update()
         {
@@ -57,6 +59,15 @@ namespace ProjectVliegtuig.Display
             {
                 button.Update();
             }
+        }
+        private static void ShowInfo(SpriteBatch s) 
+        {
+            s.DrawString(Font, "Controls:", new Vector2(10, 10), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Mov e: 'WASD' / 'ZQSD'", new Vector2(10, 40), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Shoot: 'Space'", new Vector2(10, 70), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Start: 'Enter'", new Vector2(10, 100), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Pause: 'P'", new Vector2(10, 130), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Quit: 'Esc'", new Vector2(10, 160), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
         }
     }
 }

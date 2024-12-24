@@ -26,8 +26,7 @@ namespace ProjectVliegtuig.Levels
 
         private int enemyCount;
         private int enemiesSpawned = 0;
-        private bool won = false;
-        public bool started { get; private set; } = false;
+        private bool hasWon = false;
 
         private bool MaxEnemiesSpawned { get => enemiesSpawned >= enemyCount; }
         public bool LevelOver { get; private set; }
@@ -40,11 +39,6 @@ namespace ProjectVliegtuig.Levels
             this.secondCounter = spawnInterval;
             this.enemyManager = new EnemyManager();
         }
-
-        public void StartLevel()
-        {
-            started = true;
-        }
         public void Update(GameTime gameTime)
         {
             spawn(gameTime);
@@ -53,12 +47,12 @@ namespace ProjectVliegtuig.Levels
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + enemyManager.ObjectList.Count} Enemies Remaining", new Vector2(1680, 10), Color.Black, 0, new Vector2(0,0), 1.4f, SpriteEffects.None, 0);
-            if (won) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
+            if (hasWon) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
             enemyManager.Draw(spriteBatch);
         }
         private void spawn(GameTime gameTime)
         {
-            if(!MaxEnemiesSpawned)
+            if (!MaxEnemiesSpawned)
             {
                 secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
                 Vector2 spawnPos;
@@ -82,11 +76,12 @@ namespace ProjectVliegtuig.Levels
                     secondCounter = 0;
                     enemiesSpawned++;
                 }
-            }else
+            }
+            else
             {
                 if(enemyManager.ObjectList.Count==0)
                 {
-                    won = true;
+                    hasWon = true;
                     secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
                     if(secondCounter>=1)
                     {

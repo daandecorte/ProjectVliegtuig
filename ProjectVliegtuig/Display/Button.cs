@@ -15,8 +15,8 @@ namespace ProjectVliegtuig.Display
         public static Texture2D texture;
 
         private MouseState currentMouse;
-        private bool isHovering;
         private MouseState previousMouse;
+        private bool isHovering;
 
         public event EventHandler Click;
         public bool Clicked { get; private set; }
