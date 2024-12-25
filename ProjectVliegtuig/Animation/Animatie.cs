@@ -11,6 +11,7 @@ namespace ProjectVliegtuig.Animation
     {
         public AnimationFrame CurrentFrame { get; set; }
         public List<AnimationFrame> frames;
+        public int fps { get; set; }
         private int counter=0;
         public Animatie()
         {
@@ -27,14 +28,13 @@ namespace ProjectVliegtuig.Animation
             CurrentFrame = frames[counter];
 
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-            int fps = 10;
 
             if (secondCounter >= 1d / fps)
             {
                 counter++;
                 secondCounter = 0;
             }
-            if (counter >= 6)
+            if (counter >= frames.Count)
             {
                 counter = 0;
             }

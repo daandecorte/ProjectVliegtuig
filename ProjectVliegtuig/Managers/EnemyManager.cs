@@ -31,12 +31,7 @@ namespace ProjectVliegtuig.Managers
                         j--;
                     }
                 }
-                if (ObjectList[i].health <= 0)
-                {
-                    ObjectList.RemoveAt(i);
-                    if (i > 0) i--;
-                }
-                else if (ObjectList[i].Collide(Game1.player))
+                if (ObjectList[i].Collide(Game1.player))
                 {
                     if (ObjectList[i] is BossEnemy)
                     {
@@ -44,10 +39,15 @@ namespace ProjectVliegtuig.Managers
                     }
                     else
                     {
-                        ObjectList.RemoveAt(i);
-                        if (i > 0) i--;
+                        ObjectList[i].health=0;
                     }
                     Game1.player.health--;
+                }
+                if (ObjectList[i].health <= 0)
+                {
+                    ExplosionManager.GetExplosionManager().AddExplosion(ObjectList[i].position);
+                    ObjectList.RemoveAt(i);
+                    if (i > 0) i--;
                 }
             }
         }

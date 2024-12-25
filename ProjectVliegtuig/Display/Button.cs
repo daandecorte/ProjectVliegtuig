@@ -54,7 +54,7 @@ namespace ProjectVliegtuig.Display
                         Click?.Invoke(this, new EventArgs());
                     }
                 }
-                else if(Keyboard.GetState().IsKeyDown(key))
+                if(Keyboard.GetState().IsKeyDown(key))
                 {
                     Click?.Invoke(this, new EventArgs());
                 }

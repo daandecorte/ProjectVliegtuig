@@ -31,14 +31,14 @@ namespace ProjectVliegtuig.Gameobjects
             acceleration = 0.25f;
             deceleration = 0.98f;
             Reset();
-            size = new Vector2(texture.Width/6, texture.Height/3);
+            size = new Vector2(texture.Width/6, texture.Height);
             origin = new Vector2(size.X / 2, size.Y / 2);
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
 
-            animatie = new Animatie();
-            animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 3);
+            animatie = new Animatie() {fps=10 };
+            animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 1);
         }
         public override void Draw(SpriteBatch s)
         {

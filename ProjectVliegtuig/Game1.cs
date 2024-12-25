@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
 using ProjectVliegtuig.Display;
+using ProjectVliegtuig.Effects;
 using ProjectVliegtuig.Gameobjects;
 using ProjectVliegtuig.LevelCreators;
 using ProjectVliegtuig.Levels;
@@ -62,6 +63,8 @@ namespace ProjectVliegtuig
             
             Button.texture = Content.Load<Texture2D>("button");
             Button.font = Content.Load<SpriteFont>("font");
+
+            Explosion.texture = Content.Load<Texture2D>("explosion");
             
             Level.winscreen = Content.Load<Texture2D>("winscreen");
             Level.Font = Content.Load<SpriteFont>("font");
@@ -75,6 +78,7 @@ namespace ProjectVliegtuig
         private void LoadGameObjects()
         {
             BulletManager.Init();
+            ExplosionManager.Init();
             player = new Player();
             levelCreatorFactory = new LevelCreatorFactory();
             
@@ -103,6 +107,7 @@ namespace ProjectVliegtuig
                 }
                 player.Update(gameTime);
                 BulletManager.GetBulletManager().Update(gameTime);
+                ExplosionManager.GetExplosionManager().Update(gameTime);
                 level.Update(gameTime);
                 if (level?.LevelOver == true)
                 {
@@ -128,6 +133,7 @@ namespace ProjectVliegtuig
             {
                 player.Draw(spriteBatch);
                 BulletManager.GetBulletManager().Draw(spriteBatch);
+                ExplosionManager.GetExplosionManager().Draw(spriteBatch);
                 level.Draw(spriteBatch);
                 IsMouseVisible = false;
             }
@@ -171,6 +177,7 @@ namespace ProjectVliegtuig
         private void StartLevel()
         {
             BulletManager.BulletList.Clear();
+            ExplosionManager.GetExplosionManager().ObjectList.Clear();
             isPlaying = true;
             player.Reset();
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
