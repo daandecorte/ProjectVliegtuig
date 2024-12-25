@@ -22,6 +22,7 @@ namespace ProjectVliegtuig.Display
         public bool Clicked { get; private set; }
         public Color PenColor { get; set; }
         public Vector2 Position { get; set; }
+        public Keys key { get; set; }
         public bool enabled=true;
         public Rectangle Rectangle
         {
@@ -51,6 +52,10 @@ namespace ProjectVliegtuig.Display
                     {
                         Click?.Invoke(this, new EventArgs());
                     }
+                }
+                else if(Keyboard.GetState().IsKeyDown(key))
+                {
+                    Click?.Invoke(this, new EventArgs());
                 }
             }
         }

@@ -18,8 +18,6 @@ namespace ProjectVliegtuig
         private SpriteBatch _spriteBatch;
 
         private Texture2D background;
-        private Texture2D pauzescreen;
-        private Texture2D gameOverScreen;
 
         public static Player player;
         public static int currentLevel = 1;
@@ -57,14 +55,14 @@ namespace ProjectVliegtuig
             ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
             BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
             background = Content.Load<Texture2D>("background");
-            pauzescreen = Content.Load<Texture2D>("start");
-            gameOverScreen = Content.Load<Texture2D>("gameover");
             Level.winscreen = Content.Load<Texture2D>("winscreen");
             Bullet.texture = Content.Load<Texture2D>("bullet");
             Button.texture = Content.Load<Texture2D>("button");
             Button.font = Content.Load<SpriteFont>("font");
             Level.Font = Content.Load<SpriteFont>("font");
             StartScreen.Font = Content.Load<SpriteFont>("font");
+            StartScreen.pauzeScreen = Content.Load<Texture2D>("start");
+            StartScreen.gameOverScreen = Content.Load<Texture2D>("gameover");
             LoadGameObjects();
         }
         private void LoadGameObjects()
@@ -80,10 +78,6 @@ namespace ProjectVliegtuig
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            {
-                Exit(); 
-            }
             if (Keyboard.GetState().IsKeyDown(Keys.P) && level != null && !pauzePressed)
             {
                 isPlaying = !isPlaying;
@@ -113,10 +107,6 @@ namespace ProjectVliegtuig
             }
             else
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.Enter))
-                {
-                    StartLevel();
-                }
                 StartScreen.Update();
             }
             base.Update(gameTime);
@@ -135,14 +125,6 @@ namespace ProjectVliegtuig
             }
             else
             {
-                if (player.health <= 0)
-                {
-                    _spriteBatch.Draw(gameOverScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
-                }
-                else
-                {
-                    _spriteBatch.Draw(pauzescreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
-                }
                 StartScreen.Draw(_spriteBatch);
                 IsMouseVisible = true;
 
@@ -182,7 +164,7 @@ namespace ProjectVliegtuig
         {
             BulletManager.BulletList.Clear();
             isPlaying = true;
-            player.health = 3;
+            player.Reset();
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
         }
     }

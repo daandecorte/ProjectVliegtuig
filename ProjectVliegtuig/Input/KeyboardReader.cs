@@ -15,19 +15,19 @@ namespace ProjectVliegtuig.Input
         {
             KeyboardState state = Keyboard.GetState();
             Vector2 direction = Vector2.Zero;
-            if(state.IsKeyDown(Keys.Z))
+            if (state.IsKeyDown(Keys.Z) || state.IsKeyDown(Keys.Up))
             {
                 direction.Y = -1;
             }
-            if (state.IsKeyDown(Keys.S))
+            if (state.IsKeyDown(Keys.S) || state.IsKeyDown(Keys.Down))
             {
                 direction.Y = 1;
             }
-            if (state.IsKeyDown(Keys.D))
+            if (state.IsKeyDown(Keys.D) || state.IsKeyDown(Keys.Right))
             {
                 direction.X = 1;
             }
-            if (state.IsKeyDown(Keys.Q))
+            if (state.IsKeyDown(Keys.Q) || state.IsKeyDown(Keys.Left))
             {
                 direction.X = -1;
             }

@@ -30,10 +30,9 @@ namespace ProjectVliegtuig.Gameobjects
         {
             acceleration = 0.25f;
             deceleration = 0.98f;
-            position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
+            Reset();
             size = new Vector2(texture.Width/6, texture.Height/3);
             origin = new Vector2(size.X / 2, size.Y / 2);
-            speed = new Vector2(0, 0);
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
@@ -110,6 +109,12 @@ namespace ProjectVliegtuig.Gameobjects
                     if(i>0) i--;
                 }
             }
+        }
+        public void Reset()
+        {
+            health = 3;
+            position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
+            speed = new Vector2(0, 0);
         }
     }
 }
