@@ -9,6 +9,7 @@
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bullet.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/button.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/enemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/enemyhealth.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/font.spritefont</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/hearts.png</File>
@@ -19,6 +20,7 @@
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/winscreen.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

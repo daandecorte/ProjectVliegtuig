@@ -54,6 +54,7 @@ namespace ProjectVliegtuig
             Player.healthBar = Content.Load<Texture2D>("hearts");
             
             Enemy.texture = Content.Load<Texture2D>("enemy");
+            Enemy.healthBar = Content.Load<Texture2D>("enemyhealth");
             ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
             BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
             

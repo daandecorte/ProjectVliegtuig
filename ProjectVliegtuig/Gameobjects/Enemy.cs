@@ -16,7 +16,9 @@ namespace ProjectVliegtuig.Gameobjects
     public class Enemy : Plane
     {
         public static Texture2D texture;
+        public static Texture2D healthBar;
         public Texture2D box;
+        protected int maxHealth;
 
         protected virtual Texture2D _texture
         {
@@ -32,10 +34,13 @@ namespace ProjectVliegtuig.Gameobjects
 
             origin = new Vector2(_texture.Width / 2, _texture.Height/2);
             size = new Vector2(_texture.Width, _texture.Height);
+
+            maxHealth = health;
         }
         public override void Draw(SpriteBatch s)
         {
             //s.Draw(box, rectangle, Color.White);
+            s.Draw(healthBar, new Vector2(position.X-(origin.X/2), position.Y-size.Y), new Rectangle(0, (int)(((healthBar.Height)/6)*Math.Ceiling((6f/ (float)maxHealth)*health))-healthBar.Height/6, healthBar.Width, healthBar.Height/6), Color.White);
             s.Draw(_texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
