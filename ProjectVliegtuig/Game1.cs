@@ -14,31 +14,30 @@ namespace ProjectVliegtuig
 {
     public class Game1 : Game
     {
-        private GraphicsDeviceManager _graphics;
-        private SpriteBatch _spriteBatch;
-
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+        
         private Texture2D background;
-
         public static Player player;
-        public static int currentLevel = 1;
-        public static int lastLevel = 1;
 
         LevelCreatorFactory levelCreatorFactory;
         Level level;
         private int bossLevel = 0;
+        public static int currentLevel = 1;
+        public static int lastLevel = 1;
 
         private bool isPlaying = false;
         private bool pauzePressed = false;
 
         public Game1()
         {
-            _graphics = new GraphicsDeviceManager(this);
+            graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
         }
 
         protected override void Initialize()
         {
-            DisplayManager.Init(_graphics);
+            DisplayManager.Init(graphics);
             StartScreen.Init();
 
             base.Initialize();
@@ -46,23 +45,30 @@ namespace ProjectVliegtuig
         protected override void LoadContent()
         {
             DisplayManager.getDisplay().Apply();
-            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            spriteBatch = new SpriteBatch(GraphicsDevice);
             GameObject.graphicsDevice = GraphicsDevice;
 
+            background = Content.Load<Texture2D>("background");
+            
             Player.texture = Content.Load<Texture2D>("plane");
             Player.healthBar = Content.Load<Texture2D>("hearts");
+            
             Enemy.texture = Content.Load<Texture2D>("enemy");
             ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
             BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
-            background = Content.Load<Texture2D>("background");
-            Level.winscreen = Content.Load<Texture2D>("winscreen");
+            
             Bullet.texture = Content.Load<Texture2D>("bullet");
+            
             Button.texture = Content.Load<Texture2D>("button");
             Button.font = Content.Load<SpriteFont>("font");
+            
+            Level.winscreen = Content.Load<Texture2D>("winscreen");
             Level.Font = Content.Load<SpriteFont>("font");
+
             StartScreen.Font = Content.Load<SpriteFont>("font");
             StartScreen.pauzeScreen = Content.Load<Texture2D>("start");
             StartScreen.gameOverScreen = Content.Load<Texture2D>("gameover");
+            
             LoadGameObjects();
         }
         private void LoadGameObjects()
@@ -70,6 +76,7 @@ namespace ProjectVliegtuig
             BulletManager.Init();
             player = new Player();
             levelCreatorFactory = new LevelCreatorFactory();
+            
             StartScreen.GetStartScreen().exitButton.Click += ExitButton_Click;
             StartScreen.GetStartScreen().currentLevelButton.Click += CurrentLevelButton_Click;
             StartScreen.GetStartScreen().bossLevelButton.Click += BossLevelButton_Click;
@@ -107,29 +114,29 @@ namespace ProjectVliegtuig
             }
             else
             {
-                StartScreen.Update();
+                StartScreen.GetStartScreen().Update(gameTime);
             }
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
-            _spriteBatch.Begin( SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.AnisotropicWrap);
-            _spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
+            spriteBatch.Begin( SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.AnisotropicWrap);
+            spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
             if(isPlaying)
             {
-                player.Draw(_spriteBatch);
-                BulletManager.GetBulletManager().Draw(_spriteBatch);
-                level.Draw(_spriteBatch);
+                player.Draw(spriteBatch);
+                BulletManager.GetBulletManager().Draw(spriteBatch);
+                level.Draw(spriteBatch);
                 IsMouseVisible = false;
             }
             else
             {
-                StartScreen.Draw(_spriteBatch);
+                StartScreen.GetStartScreen().Draw(spriteBatch);
                 IsMouseVisible = true;
 
             }
-            _spriteBatch.End();
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }

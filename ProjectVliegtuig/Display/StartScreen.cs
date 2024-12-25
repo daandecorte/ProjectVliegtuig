@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.LevelCreators;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Display
 {
-    public class StartScreen
+    public class StartScreen: IGameObject
     {
         public static SpriteFont Font;
         public static Texture2D gameOverScreen;
@@ -43,7 +44,7 @@ namespace ProjectVliegtuig.Display
             else return null;
         }
 
-        public static void Draw(SpriteBatch s)
+        public void Draw(SpriteBatch s)
         {
             if (Game1.player.health <= 0)
             {
@@ -59,7 +60,7 @@ namespace ProjectVliegtuig.Display
             }
             ShowInfo(s);
         }
-        public static void Update()
+        public void Update(GameTime gameTime)
         {
             startScreen.currentLevelButton.Text = $"Play  Level  {Game1.currentLevel}\n      [Enter]";
             startScreen.replayButton.Text = $"Replay  Level {Game1.lastLevel}\n            [R]";
@@ -72,7 +73,7 @@ namespace ProjectVliegtuig.Display
             }
             foreach (var button in startScreen.buttons)
             {
-                button.Update();
+                button.Update(gameTime);
             }
         }
         private static void ShowInfo(SpriteBatch s) 

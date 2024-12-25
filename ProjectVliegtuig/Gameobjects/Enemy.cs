@@ -82,8 +82,6 @@ namespace ProjectVliegtuig.Gameobjects
             return false;
         }
         protected override void Shoot(GameTime gameTime)
-        {
-            
-        }
+        {}
     }
 }

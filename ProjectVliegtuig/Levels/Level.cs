@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.Managers;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ using System.Threading.Tasks.Dataflow;
 
 namespace ProjectVliegtuig.Levels
 {
-    public class Level
+    public class Level: IGameObject
     {
         public static SpriteFont Font;
         public static Texture2D winscreen;
