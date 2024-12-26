@@ -90,7 +90,7 @@ namespace ProjectVliegtuig
 
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.P) && level != null && !pauzePressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.P) && level?.LevelOver==false && !pauzePressed)
             {
                 isPlaying = !isPlaying;
                 pauzePressed = true;
@@ -131,9 +131,9 @@ namespace ProjectVliegtuig
             spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
             if(isPlaying)
             {
-                player.Draw(spriteBatch);
                 BulletManager.GetBulletManager().Draw(spriteBatch);
                 ExplosionManager.GetExplosionManager().Draw(spriteBatch);
+                player.Draw(spriteBatch);
                 level.Draw(spriteBatch);
                 IsMouseVisible = false;
             }

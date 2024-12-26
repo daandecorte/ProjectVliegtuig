@@ -38,13 +38,13 @@ namespace ProjectVliegtuig.Gameobjects
             box.SetData(new[] { Color.Red });
 
             animatie = new Animatie() {fps=10 };
-            animatie.GetFramesFromTextureProperties(texture.Width, texture.Height, 6, 1);
+            animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
         }
         public override void Draw(SpriteBatch s)
         {
             //s.Draw(box, rectangle, Color.White);
 
-            s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, 1.0f, SpriteEffects.None, 0f);
+            s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }
 

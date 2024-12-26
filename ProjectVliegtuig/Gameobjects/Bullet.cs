@@ -27,7 +27,7 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Draw(SpriteBatch s)
         {
             //s.Draw(box, rectangle, Color.White);
-            s.Draw(texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0);
+            s.Draw(texture, position,  new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0);
         }
         public override void Update(GameTime gameTime)
         {

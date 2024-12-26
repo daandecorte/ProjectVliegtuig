@@ -14,6 +14,7 @@ namespace ProjectVliegtuig.Gameobjects
         protected float acceleration = 0.10f;
         protected float deceleration = 0.98f;
         protected Vector2 direction;
+        protected float scale = 1f;
         protected abstract void Shoot(GameTime gameTime);
         protected virtual void Move()
         {

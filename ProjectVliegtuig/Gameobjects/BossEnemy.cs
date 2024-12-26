@@ -25,6 +25,7 @@ namespace ProjectVliegtuig.Gameobjects
             health = 10;
             maxHealth = health;
             acceleration = 0.15f;
+            scale = 1.4f;
         }
         protected override void Shoot(GameTime gameTime)
         {

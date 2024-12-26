@@ -39,7 +39,7 @@ namespace ProjectVliegtuig.Animation
                 counter = 0;
             }
         }
-        public void GetFramesFromTextureProperties(int width, int height, int numberOfWidthSprites, int numberOfHeightSprites)
+        public void GetFramesFromTexture(int width, int height, int numberOfWidthSprites, int numberOfHeightSprites)
         {
             int widthOfFrame = width / numberOfWidthSprites;
             int heightOfFrame = height / numberOfHeightSprites;

@@ -41,7 +41,7 @@ namespace ProjectVliegtuig.Gameobjects
         {
             //s.Draw(box, rectangle, Color.White);
             s.Draw(healthBar, new Vector2(position.X-(origin.X/2), position.Y-size.Y), new Rectangle(0, (int)(((healthBar.Height)/6)*Math.Ceiling((6f/ (float)maxHealth)*health))-healthBar.Height/6, healthBar.Width, healthBar.Height/6), Color.White);
-            s.Draw(_texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0.0f);
+            s.Draw(_texture, position, new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, scale, SpriteEffects.None, 0.0f);
         }
         public override void Update(GameTime gameTime)
         {
