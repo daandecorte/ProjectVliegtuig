@@ -18,18 +18,18 @@ namespace ProjectVliegtuig.Managers
         private static BulletManager bulletManager;
         public static List<Bullet> BulletList { get => bulletManager.ObjectList; }
 
-        private BulletManager()
+        public BulletManager()
         {
             ObjectList = new List<Bullet>();
         }
         public static void Init()
         {
-            if(bulletManager==null)
+            if (bulletManager == null)
             {
                 bulletManager = new BulletManager();
             }
         }
-        public static BulletManager GetBulletManager()
+        public static BulletManager GetManager()
         {
             return bulletManager;
         }

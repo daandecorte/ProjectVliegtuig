@@ -41,7 +41,7 @@ namespace ProjectVliegtuig.Display
         {
             if(graphicsDeviceManager != null)
             {
-                graphicsDeviceManager.IsFullScreen = true;
+                graphicsDeviceManager.IsFullScreen = false;
                 graphicsDeviceManager.PreferredBackBufferWidth = width;
                 graphicsDeviceManager.PreferredBackBufferHeight = height;
                 graphicsDeviceManager.ApplyChanges();

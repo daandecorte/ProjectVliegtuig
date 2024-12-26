@@ -13,9 +13,21 @@ namespace ProjectVliegtuig.Managers
 {
     public class EnemyManager : Manager<Enemy>
     {
+        private static EnemyManager enemyManager;
         public EnemyManager()
         {
             ObjectList = new List<Enemy>();
+        }
+        public static void Init()
+        {
+            if (enemyManager == null)
+            {
+                enemyManager = new EnemyManager();
+            }
+        }
+        public static EnemyManager GetManager()
+        {
+            return enemyManager;
         }
 
         public override void Update(GameTime gameTime)
@@ -45,13 +57,13 @@ namespace ProjectVliegtuig.Managers
                 }
                 if (ObjectList[i].health <= 0)
                 {
-                    ExplosionManager.GetExplosionManager().AddExplosion(ObjectList[i].position);
+                    ExplosionManager.GetManager().AddExplosion(ObjectList[i].position);
                     ObjectList.RemoveAt(i);
                     if (i > 0) i--;
                 }
             }
         }
-        public void spawn(Enemy enemy)
+        public void Spawn(Enemy enemy)
         {
             ObjectList.Add(enemy);
         }

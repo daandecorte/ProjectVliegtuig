@@ -77,8 +77,8 @@ namespace ProjectVliegtuig
         }
         private void LoadGameObjects()
         {
-            BulletManager.Init();
-            ExplosionManager.Init();
+            Level.Init();
+
             player = new Player();
             levelCreatorFactory = new LevelCreatorFactory();
             
@@ -105,10 +105,8 @@ namespace ProjectVliegtuig
                     lastLevel = currentLevel;
                     currentLevel = 1;
                 }
-                player.Update(gameTime);
-                BulletManager.GetBulletManager().Update(gameTime);
-                ExplosionManager.GetExplosionManager().Update(gameTime);
                 level.Update(gameTime);
+                player.Update(gameTime);
                 if (level?.LevelOver == true)
                 {
                     isPlaying = false;
@@ -131,10 +129,8 @@ namespace ProjectVliegtuig
             spriteBatch.Draw(background, new Rectangle(0,0,DisplayManager.getDisplay().width, DisplayManager.getDisplay().height), Color.White);
             if(isPlaying)
             {
-                BulletManager.GetBulletManager().Draw(spriteBatch);
-                ExplosionManager.GetExplosionManager().Draw(spriteBatch);
-                player.Draw(spriteBatch);
                 level.Draw(spriteBatch);
+                player.Draw(spriteBatch);
                 IsMouseVisible = false;
             }
             else
@@ -176,8 +172,6 @@ namespace ProjectVliegtuig
         #endregion
         private void StartLevel()
         {
-            BulletManager.BulletList.Clear();
-            ExplosionManager.GetExplosionManager().ObjectList.Clear();
             isPlaying = true;
             player.Reset();
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();

@@ -11,16 +11,19 @@ namespace ProjectVliegtuig.Managers
 {
     internal class ExplosionManager: Manager<Explosion>
     {
-        public static ExplosionManager explosionManager;
-        private ExplosionManager()
+        private static ExplosionManager explosionManager;
+        public ExplosionManager()
         {
             ObjectList = new List<Explosion>();
         }
         public static void Init()
         {
-            if (explosionManager == null) explosionManager = new ExplosionManager();
+            if (explosionManager == null)
+            {
+                explosionManager = new ExplosionManager();
+            }
         }
-        public static ExplosionManager GetExplosionManager()
+        public static ExplosionManager GetManager()
         {
             return explosionManager;
         }
