@@ -46,7 +46,7 @@ namespace ProjectVliegtuig.Display
 
         public void Draw(SpriteBatch s)
         {
-            if (Game1.player.health <= 0)
+            if (Player.Get().health <= 0)
             {
                 s.Draw(gameOverScreen, DisplayManager.getDisplay().fullScreenRectangle, Color.White);
             }

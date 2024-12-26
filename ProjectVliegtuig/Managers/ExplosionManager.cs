@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ProjectVliegtuig.Effects;
+using ProjectVliegtuig.Gameobjects;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
@@ -12,24 +13,20 @@ namespace ProjectVliegtuig.Managers
     internal class ExplosionManager: Manager<Explosion>
     {
         private static ExplosionManager explosionManager;
-        public ExplosionManager()
+        public static List<Explosion> ExplosionList { get => explosionManager.ObjectList; }
+
+        private ExplosionManager()
         {
             ObjectList = new List<Explosion>();
         }
-        public static void Init()
+        public static ExplosionManager Init()
         {
-            if (explosionManager == null)
-            {
-                explosionManager = new ExplosionManager();
-            }
-        }
-        public static ExplosionManager GetManager()
-        {
+            explosionManager = new ExplosionManager();
             return explosionManager;
         }
-        public void AddExplosion(Vector2 position)
+        public static void AddExplosion(Vector2 position)
         {
-            ObjectList.Add(new Explosion(position));
+            ExplosionList.Add(new Explosion(position));
         }
         public override void Update(GameTime gameTime)
         {

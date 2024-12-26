@@ -18,19 +18,13 @@ namespace ProjectVliegtuig.Managers
         private static BulletManager bulletManager;
         public static List<Bullet> BulletList { get => bulletManager.ObjectList; }
 
-        public BulletManager()
+        private BulletManager()
         {
             ObjectList = new List<Bullet>();
         }
-        public static void Init()
+        public static BulletManager Init()
         {
-            if (bulletManager == null)
-            {
-                bulletManager = new BulletManager();
-            }
-        }
-        public static BulletManager GetManager()
-        {
+            bulletManager = new BulletManager();
             return bulletManager;
         }
         public override void Update(GameTime gameTime)

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Display;
+using ProjectVliegtuig.Effects;
 using ProjectVliegtuig.Gameobjects;
 using System;
 using System.Collections.Generic;
@@ -14,20 +15,20 @@ namespace ProjectVliegtuig.Managers
     public class EnemyManager : Manager<Enemy>
     {
         private static EnemyManager enemyManager;
-        public EnemyManager()
+        public static List<Enemy> EnemyList { get => enemyManager.ObjectList; }
+
+        private EnemyManager()
         {
             ObjectList = new List<Enemy>();
         }
-        public static void Init()
+        public static EnemyManager Init()
         {
-            if (enemyManager == null)
-            {
-                enemyManager = new EnemyManager();
-            }
-        }
-        public static EnemyManager GetManager()
-        {
+            enemyManager = new EnemyManager();
             return enemyManager;
+        }
+        public static void Spawn(Enemy enemy)
+        {
+            EnemyList.Add(enemy);
         }
 
         public override void Update(GameTime gameTime)
@@ -43,7 +44,7 @@ namespace ProjectVliegtuig.Managers
                         j--;
                     }
                 }
-                if (ObjectList[i].Collide(Game1.player))
+                if (ObjectList[i].Collide(Player.Get()))
                 {
                     if (ObjectList[i] is BossEnemy)
                     {
@@ -53,19 +54,15 @@ namespace ProjectVliegtuig.Managers
                     {
                         ObjectList[i].health=0;
                     }
-                    Game1.player.health--;
+                    Player.Get().health--;
                 }
                 if (ObjectList[i].health <= 0)
                 {
-                    ExplosionManager.GetManager().AddExplosion(ObjectList[i].position);
+                    ExplosionManager.AddExplosion(ObjectList[i].position);
                     ObjectList.RemoveAt(i);
                     if (i > 0) i--;
                 }
             }
-        }
-        public void Spawn(Enemy enemy)
-        {
-            ObjectList.Add(enemy);
         }
     }
 }

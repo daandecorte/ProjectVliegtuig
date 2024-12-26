@@ -41,19 +41,15 @@ namespace ProjectVliegtuig.Levels
             this.spawnInterval = spawnInterval;
             this.secondCounter = spawnInterval;
 
-            EnemyManager.GetManager().ObjectList.Clear();
-            BulletManager.GetManager().ObjectList.Clear();
-            ExplosionManager.GetManager().ObjectList.Clear();
+            Init();
         }
-        public static void Init()
+        private void Init()
         {
-            EnemyManager.Init();
-            BulletManager.Init();
-            ExplosionManager.Init();
+            Player.Get().Reset();
             managers = [
-                EnemyManager.GetManager(),
-                BulletManager.GetManager(),
-                ExplosionManager.GetManager()
+                EnemyManager.Init(),
+                BulletManager.Init(),
+                ExplosionManager.Init()
             ];
         }
         public void Update(GameTime gameTime)
@@ -63,15 +59,17 @@ namespace ProjectVliegtuig.Levels
             {
                 manager.Update(gameTime);
             }
+            Player.Get().Update(gameTime);
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.GetManager().ObjectList.Count} Enemies Remaining", new Vector2(1680, 10), Color.Black, 0, new Vector2(0,0), 1.4f, SpriteEffects.None, 0);
+            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1680, 10), Color.Black, 0, new Vector2(0,0), 1.4f, SpriteEffects.None, 0);
             if (hasWon) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
             foreach (var manager in managers)
             {
                 manager.Draw(spriteBatch);
             }
+            Player.Get().Draw(spriteBatch);
         }
         private void Spawn(GameTime gameTime)
         {
@@ -85,13 +83,13 @@ namespace ProjectVliegtuig.Levels
                     switch (random.Next(minEnemyLevel, maxEnemyLevel))
                     {
                         case 0:
-                            EnemyManager.GetManager().Spawn(new Enemy(spawnPos));
+                            EnemyManager.Spawn(new Enemy(spawnPos));
                             break;
                         case 1:
-                            EnemyManager.GetManager().Spawn(new ShootingEnemy(spawnPos));
+                            EnemyManager.Spawn(new ShootingEnemy(spawnPos));
                             break;
                         case 2:
-                            EnemyManager.GetManager().Spawn(new BossEnemy(spawnPos));
+                            EnemyManager.Spawn(new BossEnemy(spawnPos));
                             break;
                         default:
                             break;
@@ -102,7 +100,7 @@ namespace ProjectVliegtuig.Levels
             }
             else
             {
-                if(EnemyManager.GetManager().ObjectList.Count==0)
+                if(EnemyManager.EnemyList.Count==0)
                 {
                     hasWon = true;
                     secondCounter += gameTime.ElapsedGameTime.TotalSeconds;

@@ -46,19 +46,19 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Update(GameTime gameTime)
         {
             rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
-            if (Game1.player.position.X > position.X)
+            if (Player.Get().position.X > position.X)
             {
                 direction.X = 1;
             }
-            if (Game1.player.position.X < position.X)
+            if (Player.Get().position.X < position.X)
             {
                 direction.X = -1;
             }
-            if (Game1.player.position.Y > position.Y)
+            if (Player.Get().position.Y > position.Y)
             {
                 direction.Y = 1;
             }
-            if (Game1.player.position.Y < position.Y)
+            if (Player.Get().position.Y < position.Y)
             {
                 direction.Y = -1;
             }

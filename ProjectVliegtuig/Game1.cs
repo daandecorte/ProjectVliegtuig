@@ -19,7 +19,6 @@ namespace ProjectVliegtuig
         private SpriteBatch spriteBatch;
         
         private Texture2D background;
-        public static Player player;
 
         LevelCreatorFactory levelCreatorFactory;
         Level level;
@@ -77,11 +76,10 @@ namespace ProjectVliegtuig
         }
         private void LoadGameObjects()
         {
-            Level.Init();
-
-            player = new Player();
             levelCreatorFactory = new LevelCreatorFactory();
-            
+
+            Player.Init();
+
             StartScreen.GetStartScreen().exitButton.Click += ExitButton_Click;
             StartScreen.GetStartScreen().currentLevelButton.Click += CurrentLevelButton_Click;
             StartScreen.GetStartScreen().bossLevelButton.Click += BossLevelButton_Click;
@@ -90,7 +88,7 @@ namespace ProjectVliegtuig
 
         protected override void Update(GameTime gameTime)
         {
-            if (Keyboard.GetState().IsKeyDown(Keys.P) && level?.LevelOver==false && !pauzePressed)
+            if (Keyboard.GetState().IsKeyDown(Keys.P) && level?.LevelOver == false && !pauzePressed)
             {
                 isPlaying = !isPlaying;
                 pauzePressed = true;
@@ -99,14 +97,13 @@ namespace ProjectVliegtuig
 
             if (isPlaying)
             {
-                if (player.health <= 0)
+                if (Player.Get().health <= 0)
                 {
                     isPlaying = false;
                     lastLevel = currentLevel;
                     currentLevel = 1;
                 }
                 level.Update(gameTime);
-                player.Update(gameTime);
                 if (level?.LevelOver == true)
                 {
                     isPlaying = false;
@@ -130,7 +127,6 @@ namespace ProjectVliegtuig
             if(isPlaying)
             {
                 level.Draw(spriteBatch);
-                player.Draw(spriteBatch);
                 IsMouseVisible = false;
             }
             else
@@ -173,7 +169,6 @@ namespace ProjectVliegtuig
         private void StartLevel()
         {
             isPlaying = true;
-            player.Reset();
             level = levelCreatorFactory.GetLevelCreator(currentLevel).CreateLevel();
         }
     }

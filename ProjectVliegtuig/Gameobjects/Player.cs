@@ -26,6 +26,7 @@ namespace ProjectVliegtuig.Gameobjects
         KeyboardReader keyboard = new KeyboardReader();
 
         private Texture2D box;
+        private static Player player;
         public Player()
         {
             acceleration = 0.25f;
@@ -39,6 +40,17 @@ namespace ProjectVliegtuig.Gameobjects
 
             animatie = new Animatie() {fps=10 };
             animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
+        }
+        public static void Init()
+        {
+            if(player==null)
+            {
+                player = new Player();
+            }
+        }
+        public static Player Get()
+        {
+            return player;
         }
         public override void Draw(SpriteBatch s)
         {
