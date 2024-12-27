@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = ProjectVliegtuig
-build_property.ProjectDir = C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\
+build_property.ProjectDir = D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

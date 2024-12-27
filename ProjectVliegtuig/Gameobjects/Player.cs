@@ -38,7 +38,7 @@ namespace ProjectVliegtuig.Gameobjects
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
 
-            animatie = new Animatie() {fps=10 };
+            animatie = new Animatie();
             animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
         }
         public static void Init()
@@ -63,6 +63,7 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Update(GameTime gameTime)
         {
             rectangle = new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y);
+            animatie.fps = 10 + 5 * (int)Math.Sqrt(Math.Pow(speed.X, 2) + Math.Pow(speed.Y, 2));
             animatie.Update(gameTime);
             Shoot(gameTime);
             Move();

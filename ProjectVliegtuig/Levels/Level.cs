@@ -64,12 +64,12 @@ namespace ProjectVliegtuig.Levels
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1680, 10), Color.Black, 0, new Vector2(0,0), 1.4f, SpriteEffects.None, 0);
-            if (hasWon) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
             foreach (var manager in managers)
             {
                 manager.Draw(spriteBatch);
             }
             Player.Get().Draw(spriteBatch);
+            if (hasWon) spriteBatch.Draw(winscreen, new Rectangle(0, 0, winscreen.Width, winscreen.Height), Color.White);
         }
         private void Spawn(GameTime gameTime)
         {

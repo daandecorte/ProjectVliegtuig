@@ -66,3 +66,44 @@ C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\De
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\winscreen.xnb
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\enemyhealth.xnb
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\explosion.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\background.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bossenemy.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bullet.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\button.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\enemy.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\enemyhealth.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\explosion.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\font.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\gameover.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\hearts.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\nextlevel.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\plane.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\shootingenemy.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\start.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\winscreen.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\ProjectVliegtuig.exe
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\ProjectVliegtuig.deps.json
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\ProjectVliegtuig.runtimeconfig.json
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\ProjectVliegtuig.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\ProjectVliegtuig.pdb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\MonoGame.Framework.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\linux-x64\native\libSDL2-2.0.so.0
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\linux-x64\native\libopenal.so.1
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\osx\native\libSDL2.dylib
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\osx\native\libopenal.1.dylib
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\win-x64\native\SDL2.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\win-x64\native\soft_oal.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\win-x86\native\SDL2.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\runtimes\win-x86\native\soft_oal.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.csproj.AssemblyReference.cache
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.GeneratedMSBuildEditorConfig.editorconfig
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.AssemblyInfoInputs.cache
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.AssemblyInfo.cs
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.csproj.CoreCompileInputs.cache
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.sourcelink.json
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectV.9AA44043.Up2Date
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\refint\ProjectVliegtuig.dll
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.pdb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ProjectVliegtuig.genruntimeconfig.cache
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ref\ProjectVliegtuig.dll
