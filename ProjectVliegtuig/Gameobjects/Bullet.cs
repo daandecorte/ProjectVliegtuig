@@ -17,12 +17,12 @@ namespace ProjectVliegtuig.Gameobjects
             this.speed.X = (float)Math.Sin(rotation)*20;
             this.speed.Y = -(float)Math.Cos(rotation)*20;
             size = new Vector2(texture.Width, texture.Height);
-            this.position = position + (this.speed*5);
+            this.position = position + (this.speed * 5);
             this.origin = new Vector2(size.X / 2, size.Y / 2);
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
-
+            rectangle = new Rectangle((int)(this.position.X-origin.X), (int)(this.position.Y-origin.Y), (int)size.X, (int)size.Y);
         }
         public override void Draw(SpriteBatch s)
         {
@@ -31,7 +31,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Update(GameTime gameTime)
         {
-            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
+            base.Update(gameTime);
             Move();
         }
         private void Move()

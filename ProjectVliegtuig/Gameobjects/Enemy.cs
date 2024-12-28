@@ -36,6 +36,7 @@ namespace ProjectVliegtuig.Gameobjects
             size = new Vector2(_texture.Width, _texture.Height);
 
             maxHealth = health;
+            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
         }
         public override void Draw(SpriteBatch s)
         {
@@ -45,7 +46,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Update(GameTime gameTime)
         {
-            rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
+            base.Update(gameTime);
             if (Player.Get().position.X > position.X)
             {
                 direction.X = 1;

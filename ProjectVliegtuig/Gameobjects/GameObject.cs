@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,7 +19,11 @@ namespace ProjectVliegtuig.Gameobjects
         public float rotation;
         public Vector2 size;
         public Vector2 origin;
-        public abstract void Update(GameTime gameTime);
+        public virtual void Update(GameTime gameTime)
+        {
+            rectangle.X = (int)position.X - (int)origin.X;
+            rectangle.Y = (int)position.Y - (int)origin.Y;
+        }
         public abstract void Draw(SpriteBatch s);
     }
 }

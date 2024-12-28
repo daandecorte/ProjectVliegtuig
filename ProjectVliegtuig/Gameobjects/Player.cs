@@ -40,6 +40,7 @@ namespace ProjectVliegtuig.Gameobjects
 
             animatie = new Animatie();
             animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
+            rectangle = new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y);
         }
         public static void Init()
         {
@@ -62,12 +63,12 @@ namespace ProjectVliegtuig.Gameobjects
 
         public override void Update(GameTime gameTime)
         {
-            rectangle = new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y);
             animatie.fps = 10 + 5 * (int)Math.Sqrt(Math.Pow(speed.X, 2) + Math.Pow(speed.Y, 2));
             animatie.Update(gameTime);
             Shoot(gameTime);
             Move();
             Collide();
+            base.Update(gameTime);
         }
         protected override void Move()
         {
