@@ -24,7 +24,7 @@ namespace ProjectVliegtuig.Gameobjects
         {
             get => texture;
         }
-        public Enemy(Vector2 position)
+        public Enemy(Vector2 position, int health = 3)
         {
             this.position = position;
             direction = new Vector2(0, 0);
@@ -35,6 +35,7 @@ namespace ProjectVliegtuig.Gameobjects
             origin = new Vector2(_texture.Width / 2, _texture.Height/2);
             size = new Vector2(_texture.Width, _texture.Height);
 
+            this.health = health;
             maxHealth = health;
             rectangle = new Rectangle((int)(position.X - origin.X), (int)(position.Y - origin.Y), (int)size.X, (int)size.Y);
         }
@@ -51,7 +52,7 @@ namespace ProjectVliegtuig.Gameobjects
             Move();
             Shoot(gameTime);
         }
-        private void UpdateDirection()
+        protected virtual void UpdateDirection()
         {
             direction.X = Math.Sign((int)Player.Get().position.X - (int)position.X);
             direction.Y = Math.Sign((int)Player.Get().position.Y - (int)position.Y);

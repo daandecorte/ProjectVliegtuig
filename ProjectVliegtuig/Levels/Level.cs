@@ -89,6 +89,9 @@ namespace ProjectVliegtuig.Levels
                             EnemyManager.Spawn(new ShootingEnemy(spawnPos));
                             break;
                         case 2:
+                            EnemyManager.Spawn(new BomberEnemy(spawnPos));
+                            break;
+                        case 3:
                             EnemyManager.Spawn(new BossEnemy(spawnPos));
                             break;
                         default:

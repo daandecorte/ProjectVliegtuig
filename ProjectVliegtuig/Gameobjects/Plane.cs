@@ -9,7 +9,7 @@ namespace ProjectVliegtuig.Gameobjects
 {
     public abstract class Plane: GameObject
     {
-        public int health = 3;
+        public int health;
         protected double secondCounter = 0;
         protected float acceleration = 0.10f;
         protected float deceleration = 0.98f;

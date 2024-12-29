@@ -18,10 +18,8 @@ namespace ProjectVliegtuig.Gameobjects
         {
             get => texture;
         }
-        public BossEnemy(Vector2 position) : base(position)
+        public BossEnemy(Vector2 position) : base(position, 10)
         {
-            health = 10;
-            maxHealth = health;
             acceleration = 0.15f;
             scale = 1.4f;
         }

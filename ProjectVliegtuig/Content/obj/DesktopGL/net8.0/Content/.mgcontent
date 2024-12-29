@@ -5,6 +5,8 @@
   <Config />
   <SourceFiles>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/background.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bomb.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bomberenemy.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bossenemy.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bullet.png</File>
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/button.png</File>
@@ -21,6 +23,8 @@
     <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/winscreen.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

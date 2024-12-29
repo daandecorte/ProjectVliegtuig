@@ -29,6 +29,7 @@ namespace ProjectVliegtuig.Gameobjects
         private static Player player;
         public Player()
         {
+            health = 3;
             acceleration = 0.25f;
             deceleration = 0.98f;
             Reset();

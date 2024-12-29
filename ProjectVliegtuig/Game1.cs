@@ -56,8 +56,10 @@ namespace ProjectVliegtuig
             Enemy.healthBar = Content.Load<Texture2D>("enemyhealth");
             ShootingEnemy.texture = Content.Load<Texture2D>("shootingenemy");
             BossEnemy.texture = Content.Load<Texture2D>("bossenemy");
+            BomberEnemy.texture = Content.Load<Texture2D>("bomberenemy");
             
             Bullet.texture = Content.Load<Texture2D>("bullet");
+            Bomb.texture = Content.Load<Texture2D>("bomb");
             
             Button.texture = Content.Load<Texture2D>("button");
             Button.font = Content.Load<SpriteFont>("font");
