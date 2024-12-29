@@ -11,7 +11,7 @@ namespace ProjectVliegtuig.Gameobjects
     {
         public int health;
         protected double secondCounter = 0;
-        protected float acceleration = 0.10f;
+        protected float acceleration = 0.15f;
         protected float deceleration = 0.98f;
         protected Vector2 direction;
         protected float scale = 1f;

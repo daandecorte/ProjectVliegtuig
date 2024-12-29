@@ -25,7 +25,7 @@ namespace ProjectVliegtuig.Levels
         private int maxEnemyLevel;
         private int minEnemyLevel;
         private int spawnInterval;
-        private double secondCounter;
+        private double secondCounter = 0;
 
         private int enemyCount;
         private int enemiesSpawned = 0;
@@ -39,7 +39,6 @@ namespace ProjectVliegtuig.Levels
             this.maxEnemyLevel = maxEnemyLevel;
             this.enemyCount = enemyCount;
             this.spawnInterval = spawnInterval;
-            this.secondCounter = spawnInterval;
 
             Init();
         }

@@ -20,7 +20,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public BossEnemy(Vector2 position) : base(position, 10)
         {
-            acceleration = 0.15f;
+            acceleration = 0.20f;
             scale = 1.4f;
         }
         protected override void Shoot(GameTime gameTime)

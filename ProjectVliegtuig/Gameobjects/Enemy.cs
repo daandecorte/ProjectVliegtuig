@@ -54,8 +54,9 @@ namespace ProjectVliegtuig.Gameobjects
         }
         protected virtual void UpdateDirection()
         {
-            direction.X = Math.Sign((int)Player.Get().position.X - (int)position.X);
-            direction.Y = Math.Sign((int)Player.Get().position.Y - (int)position.Y);
+            double playerDirection = Math.Atan2(Player.Get().position.X - position.X, Player.Get().position.Y - position.Y);
+            direction.X = (float)Math.Sin(playerDirection);
+            direction.Y = (float)Math.Cos(playerDirection);
         }
         public bool Collide(GameObject obj)
         {
