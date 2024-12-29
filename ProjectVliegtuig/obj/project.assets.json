@@ -102,19 +102,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\daand\\.nuget\\packages\\": {}
+    "C:\\Users\\DigitalSmile\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
+      "projectUniqueName": "D:\\school\\c#\\VLIEGTUIG\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
       "projectName": "ProjectVliegtuig",
-      "projectPath": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
-      "packagesPath": "C:\\Users\\daand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\daand\\Desktop\\game development\\ProjectVliegtuig\\ProjectVliegtuig\\obj\\",
+      "projectPath": "D:\\school\\c#\\VLIEGTUIG\\ProjectVliegtuig\\ProjectVliegtuig\\ProjectVliegtuig.csproj",
+      "packagesPath": "C:\\Users\\DigitalSmile\\.nuget\\packages\\",
+      "outputPath": "D:\\school\\c#\\VLIEGTUIG\\ProjectVliegtuig\\ProjectVliegtuig\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\daand\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DigitalSmile\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -171,7 +171,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

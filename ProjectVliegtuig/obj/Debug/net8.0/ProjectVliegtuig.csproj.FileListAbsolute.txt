@@ -109,3 +109,5 @@ D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\Projec
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\obj\Debug\net8.0\ref\ProjectVliegtuig.dll
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomberenemy.xnb
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomb.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomb.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomberenemy.xnb

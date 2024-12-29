@@ -20,11 +20,11 @@ namespace ProjectVliegtuig.Levels
         public static SpriteFont Font;
         public static Texture2D winscreen;
         private static List<IManager> managers;
+        private static Random random = new Random();
 
         private int maxEnemyLevel;
         private int minEnemyLevel;
         private int spawnInterval;
-        private static Random random = new Random();
         private double secondCounter;
 
         private int enemyCount;

@@ -23,7 +23,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         protected override void UpdateDirection()
         {
-            if (200 - position.Y > 20 || 200 - position.Y < -20)
+            if (200 - position.Y > 50 || 200 - position.Y < -50)
                 direction.Y = Math.Sign(200 - (int)position.Y);
             else direction.Y = 0;
             direction.X = Math.Sign((int)Player.Get().position.X - position.X);
