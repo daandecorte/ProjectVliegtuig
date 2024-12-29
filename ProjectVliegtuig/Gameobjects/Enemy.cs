@@ -57,18 +57,8 @@ namespace ProjectVliegtuig.Gameobjects
             direction.X = Math.Sign((int)Player.Get().position.X - (int)position.X);
             direction.Y = Math.Sign((int)Player.Get().position.Y - (int)position.Y);
         }
-        public bool Collide(object o)
+        public bool Collide(GameObject obj)
         {
-            GameObject obj;
-            if (o is Bullet)
-            {
-                obj = o as Bullet;
-            }
-            else if (o is Player) 
-            {
-                obj = o as Player;
-            } 
-            else return false;
             if(rectangle.Intersects(obj.rectangle))
             {
                 health--;
@@ -76,7 +66,7 @@ namespace ProjectVliegtuig.Gameobjects
                 obj.speed = speed + obj.speed;
                 return true;
             }
-            return false;
+            else return false;
         }
         protected override void Shoot(GameTime gameTime)
         {}
