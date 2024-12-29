@@ -47,24 +47,14 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            if (Player.Get().position.X > position.X)
-            {
-                direction.X = 1;
-            }
-            if (Player.Get().position.X < position.X)
-            {
-                direction.X = -1;
-            }
-            if (Player.Get().position.Y > position.Y)
-            {
-                direction.Y = 1;
-            }
-            if (Player.Get().position.Y < position.Y)
-            {
-                direction.Y = -1;
-            }
+            UpdateDirection();
             Move();
             Shoot(gameTime);
+        }
+        private void UpdateDirection()
+        {
+            direction.X = Math.Sign((int)Player.Get().position.X - (int)position.X);
+            direction.Y = Math.Sign((int)Player.Get().position.Y - (int)position.Y);
         }
         public bool Collide(object o)
         {

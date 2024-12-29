@@ -22,7 +22,7 @@ namespace ProjectVliegtuig.Effects
         public Explosion(Vector2 position)
         {
             this.position = position;
-            animatie = new Animatie() { fps=fps};
+            animatie = new Animatie() { fps = this.fps };
             animatie.GetFramesFromTexture(texture.Width, texture.Height, 7, 1);
             origin = new Vector2(texture.Width / 14, texture.Height / 2);
         }

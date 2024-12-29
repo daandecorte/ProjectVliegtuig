@@ -10,19 +10,15 @@ namespace ProjectVliegtuig.Animation
     internal class Animatie
     {
         public AnimationFrame CurrentFrame { get; set; }
-        public List<AnimationFrame> frames;
         public int fps { get; set; }
-        private int counter=0;
+
+        public List<AnimationFrame> frames;
+        private int counter = 0;
+        private double secondCounter = 0;
         public Animatie()
         {
             frames = new List<AnimationFrame>();
         }
-        public void AddFrame(AnimationFrame frame)
-        {
-            frames.Add(frame);
-            CurrentFrame = frames[0];
-        }
-        private double secondCounter;
         public void Update(GameTime gameTime)
         {
             CurrentFrame = frames[counter];

@@ -14,12 +14,10 @@ namespace ProjectVliegtuig.Gameobjects
     {
         public static new Texture2D texture;
         private bool left = true;
-
         protected override Texture2D _texture 
         {
             get => texture;
         }
-
         public BossEnemy(Vector2 position) : base(position)
         {
             health = 10;

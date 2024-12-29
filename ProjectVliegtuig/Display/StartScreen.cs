@@ -17,10 +17,10 @@ namespace ProjectVliegtuig.Display
         public static SpriteFont Font;
         public static Texture2D gameOverScreen;
         public static Texture2D pauzeScreen;
-        public Button currentLevelButton = new Button() { key=Keys.Enter, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 250) };
-        public Button replayButton = new Button() { key=Keys.R, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 100), enabled = false };
+        public Button currentLevelButton = new Button() { key = Keys.Enter, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 250) };
+        public Button replayButton = new Button() { key = Keys.R, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 100), enabled = false };
         public Button bossLevelButton = new Button() { Text = "Boss Level\n   [locked]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 50), enabled = false };
-        public Button exitButton = new Button() {key=Keys.Escape, Text = " Exit\n[Esc]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 200) };
+        public Button exitButton = new Button() { key = Keys.Escape, Text = " Exit\n[Esc]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 200) };
         private List<Button> buttons;
 
         private static StartScreen startScreen;
@@ -43,7 +43,6 @@ namespace ProjectVliegtuig.Display
             }
             else return null;
         }
-
         public void Draw(SpriteBatch s)
         {
             if (Player.Get().health <= 0)
