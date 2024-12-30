@@ -18,7 +18,6 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public BomberEnemy(Vector2 position): base(position, 5) 
         {
-            scale = 1.4f;
             acceleration = 0.15f;
         }
         protected override void UpdateDirection()
