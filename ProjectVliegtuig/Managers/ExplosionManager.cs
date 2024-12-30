@@ -21,7 +21,11 @@ namespace ProjectVliegtuig.Managers
         }
         public static ExplosionManager Init()
         {
-            explosionManager = new ExplosionManager();
+            if(explosionManager==null)
+            {
+                explosionManager = new ExplosionManager();
+            }
+            explosionManager.ObjectList.Clear();
             return explosionManager;
         }
         public static void AddExplosion(Vector2 position)

@@ -24,7 +24,11 @@ namespace ProjectVliegtuig.Managers
         }
         public static BulletManager Init()
         {
-            bulletManager = new BulletManager();
+            if(bulletManager==null)
+            {
+                bulletManager = new BulletManager();
+            }
+            bulletManager.ObjectList.Clear();
             return bulletManager;
         }
         public override void Update(GameTime gameTime)

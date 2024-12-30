@@ -23,7 +23,11 @@ namespace ProjectVliegtuig.Managers
         }
         public static EnemyManager Init()
         {
-            enemyManager = new EnemyManager();
+            if(enemyManager==null)
+            {
+                enemyManager = new EnemyManager();
+            }
+            enemyManager.ObjectList.Clear();
             return enemyManager;
         }
         public static void Spawn(Enemy enemy)
