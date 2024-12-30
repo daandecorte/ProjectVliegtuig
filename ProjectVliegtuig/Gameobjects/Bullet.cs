@@ -27,11 +27,11 @@ namespace ProjectVliegtuig.Gameobjects
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
-            rectangle = new Rectangle((int)(this.position.X-origin.X), (int)(this.position.Y-origin.Y), (int)size.X, (int)size.Y);
+            rectangle = new Rectangle();
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(box, rectangle, Color.White);
+            //s.Draw(box, rectangle, Color.White);
             s.Draw(_texture, position,  new Rectangle(0, 0, (int)size.X, (int)size.Y), Color.White, rotation, origin, 1, SpriteEffects.None, 0);
         }
         public override void Update(GameTime gameTime)

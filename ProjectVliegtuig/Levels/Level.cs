@@ -62,7 +62,7 @@ namespace ProjectVliegtuig.Levels
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1680, 10), Color.Black, 0, new Vector2(0,0), 1.4f, SpriteEffects.None, 0);
+            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1600, 10), Color.Black, 0, new Vector2(0,0), 1.2f, SpriteEffects.None, 0);
             foreach (var manager in managers)
             {
                 manager.Draw(spriteBatch);

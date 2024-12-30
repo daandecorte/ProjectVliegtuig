@@ -4,26 +4,24 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/background.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bomb.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bomberenemy.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bossenemy.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bullet.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/button.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/enemy.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/enemyhealth.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/explosion.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/font.spritefont</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/hearts.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/nextlevel.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/plane.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/shootingenemy.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/start.png</File>
-    <File>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/winscreen.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/background.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bomb.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bomberenemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bossenemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bullet.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/button.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/enemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/enemyhealth.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/explosion.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/font.spritefont</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/hearts.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/plane.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/shootingenemy.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/start.png</File>
+    <File>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/winscreen.png</File>
   </SourceFiles>
   <DestFiles>
-    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

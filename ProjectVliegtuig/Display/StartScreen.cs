@@ -17,10 +17,10 @@ namespace ProjectVliegtuig.Display
         public static SpriteFont Font;
         public static Texture2D gameOverScreen;
         public static Texture2D pauzeScreen;
-        public Button currentLevelButton = new Button() { key = Keys.Enter, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 250) };
-        public Button replayButton = new Button() { key = Keys.R, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 - 100), enabled = false };
-        public Button bossLevelButton = new Button() { Text = "Boss Level\n   [locked]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 50), enabled = false };
-        public Button exitButton = new Button() { key = Keys.Escape, Text = " Exit\n[Esc]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 100, DisplayManager.getDisplay().height / 2 + 200) };
+        public Button currentLevelButton = new Button() { key = Keys.Enter, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 150, DisplayManager.getDisplay().height / 2 - 350) };
+        public Button replayButton = new Button() { key = Keys.R, Position = new Vector2(DisplayManager.getDisplay().width / 2 - 150, DisplayManager.getDisplay().height / 2 - 150), enabled = false };
+        public Button bossLevelButton = new Button() { Text = "Boss Level\n  [locked]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 150, DisplayManager.getDisplay().height / 2 + 50), enabled = false };
+        public Button exitButton = new Button() { key = Keys.Escape, Text = " Exit\n[Esc]", Position = new Vector2(DisplayManager.getDisplay().width / 2 - 150, DisplayManager.getDisplay().height / 2 + 250) };
         private List<Button> buttons;
 
         private static StartScreen startScreen;
@@ -61,12 +61,12 @@ namespace ProjectVliegtuig.Display
         }
         public void Update(GameTime gameTime)
         {
-            startScreen.currentLevelButton.Text = $"Play  Level  {Game1.currentLevel}\n      [Enter]";
-            startScreen.replayButton.Text = $"Replay  Level {Game1.lastLevel}\n            [R]";
+            startScreen.currentLevelButton.Text = $"Play  Level  {Game1.currentLevel}\n     [Enter]";
+            startScreen.replayButton.Text = $"Replay  Level {Game1.lastLevel}\n          [R]";
             if (Game1.currentLevel > 1) startScreen.replayButton.enabled = true;
             if (new LevelCreatorFactory().GetLevelCreator(Game1.currentLevel) is CreatorBossLevel)
             {
-                startScreen.currentLevelButton.Text += "\n      (Boss)";
+                startScreen.currentLevelButton.Text += "\n     (Boss)";
                 startScreen.bossLevelButton.enabled = true;
                 startScreen.bossLevelButton.Text = "Boss Level\n [unlocked]";
             }
@@ -77,10 +77,10 @@ namespace ProjectVliegtuig.Display
         }
         private static void ShowInfo(SpriteBatch s) 
         {
-            s.DrawString(Font, "Controls:", new Vector2(10, 10), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
-            s.DrawString(Font, "Mov e: 'WASD' / Arrow keys", new Vector2(10, 40), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
-            s.DrawString(Font, "Shoot: 'Space'", new Vector2(10, 70), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
-            s.DrawString(Font, "Pause: 'P'", new Vector2(10, 100), Color.Black, 0, Vector2.Zero, 1.4f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Controls:", new Vector2(10, 10), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Move: 'WASD' / Arrow keys", new Vector2(10, 50), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Shoot: 'Space'", new Vector2(10, 90), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Pause: 'P'", new Vector2(10, 130), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
         }
     }
 }

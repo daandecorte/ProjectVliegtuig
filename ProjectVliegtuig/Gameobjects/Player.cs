@@ -41,7 +41,7 @@ namespace ProjectVliegtuig.Gameobjects
 
             animatie = new Animatie();
             animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
-            rectangle = new Rectangle((int)position.X - (int)origin.X, (int)position.Y - (int)origin.Y, (int)size.X, (int)size.Y);
+            rectangle = new Rectangle();
         }
         public static void Init()
         {
@@ -56,7 +56,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(box, rectangle, Color.White);
+            //s.Draw(box, rectangle, Color.White);
             s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }

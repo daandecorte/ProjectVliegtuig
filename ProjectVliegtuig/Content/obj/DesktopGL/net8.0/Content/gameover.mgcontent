@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</SourceFile>
-  <SourceTime>2024-12-23T21:11:51.586292+01:00</SourceTime>
-  <DestFile>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bin/DesktopGL/Content/gameover.xnb</DestFile>
-  <DestTime>2024-12-29T20:24:05.5935542+01:00</DestTime>
+  <SourceFile>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/gameover.png</SourceFile>
+  <SourceTime>2024-12-30T21:05:58.1440329+01:00</SourceTime>
+  <DestFile>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bin/DesktopGL/Content/gameover.xnb</DestFile>
+  <DestTime>2024-12-30T21:06:06.9008712+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
