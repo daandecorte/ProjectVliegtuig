@@ -48,15 +48,15 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
-            UpdateDirection();
+            UpdateDirection(Player.Get().position);
             Move();
             Shoot(gameTime);
         }
-        protected virtual void UpdateDirection()
+        protected virtual void UpdateDirection(Vector2 destination)
         {
-            double playerDirection = Math.Atan2(Player.Get().position.X - position.X, Player.Get().position.Y - position.Y);
-            direction.X = (float)Math.Sin(playerDirection);
-            direction.Y = (float)Math.Cos(playerDirection);
+            double destinationDirection = Math.Atan2(destination.X - position.X, destination.Y - position.Y);
+            direction.X = (float)Math.Sin(destinationDirection);
+            direction.Y = (float)Math.Cos(destinationDirection);
         }
         public bool Collide(GameObject obj)
         {

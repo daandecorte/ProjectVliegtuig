@@ -75,7 +75,6 @@ D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Conten
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\font.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\gameover.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\hearts.xnb
-D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\nextlevel.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\plane.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\shootingenemy.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\start.xnb
@@ -111,3 +110,4 @@ C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\De
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomb.xnb
 D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\bomberenemy.xnb
 C:\Users\daand\Desktop\game development\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\button2.xnb
+D:\school\c#\VLIEGTUIG\ProjectVliegtuig\ProjectVliegtuig\bin\Debug\net8.0\Content\button2.xnb

@@ -18,14 +18,12 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public BomberEnemy(Vector2 position): base(position, 5) 
         {
-            acceleration = 0.15f;
+            acceleration = 0.20f;
         }
-        protected override void UpdateDirection()
+        protected override void UpdateDirection(Vector2 destination)
         {
-            if (200 - position.Y > 50 || 200 - position.Y < -50)
-                direction.Y = Math.Sign(200 - (int)position.Y);
-            else direction.Y = 0;
-            direction.X = Math.Sign((int)Player.Get().position.X - position.X);
+            destination.Y = 200;
+            base.UpdateDirection(destination);
         }
         protected override void Shoot(GameTime gameTime)
         {
