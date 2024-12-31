@@ -78,7 +78,7 @@ namespace ProjectVliegtuig.Display
         private static void ShowInfo(SpriteBatch s) 
         {
             s.DrawString(Font, "Controls:", new Vector2(10, 10), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
-            s.DrawString(Font, "Move: 'WASD' / Arrow keys", new Vector2(10, 50), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
+            s.DrawString(Font, "Move: 'ZQSD' / Arrow keys", new Vector2(10, 50), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
             s.DrawString(Font, "Shoot: 'Space'", new Vector2(10, 90), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
             s.DrawString(Font, "Pause: 'P'", new Vector2(10, 130), Color.Black, 0, Vector2.Zero, 1.2f, SpriteEffects.None, 0);
         }
