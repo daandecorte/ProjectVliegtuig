@@ -25,7 +25,7 @@ namespace ProjectVliegtuig.Gameobjects
             destination.Y = 200;
             base.UpdateDirection(destination);
         }
-        protected override void Shoot(GameTime gameTime)
+        public override void Shoot(GameTime gameTime)
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             if (secondCounter >= 2d)

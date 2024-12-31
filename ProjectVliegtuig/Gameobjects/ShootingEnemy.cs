@@ -19,7 +19,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public ShootingEnemy(Vector2 position): base(position)
         {}
-        protected override void Shoot(GameTime gameTime)
+        public override void Shoot(GameTime gameTime)
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             if (secondCounter >= 1d)

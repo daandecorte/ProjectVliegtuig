@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/font.spritefont</SourceFile>
-  <SourceTime>2024-12-31T11:49:56.9706871+01:00</SourceTime>
-  <DestFile>D:/school/c#/VLIEGTUIG/ProjectVliegtuig/ProjectVliegtuig/Content/bin/DesktopGL/Content/font.xnb</DestFile>
-  <DestTime>2024-12-31T11:50:10.3143323+01:00</DestTime>
+  <SourceFile>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/font.spritefont</SourceFile>
+  <SourceTime>2024-12-30T20:25:36.3600884+01:00</SourceTime>
+  <DestFile>C:/Users/daand/Desktop/game development/ProjectVliegtuig/ProjectVliegtuig/Content/bin/DesktopGL/Content/font.xnb</DestFile>
+  <DestTime>2024-12-31T15:41:19.7239094+01:00</DestTime>
   <Importer>FontDescriptionImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>FontDescriptionProcessor</Processor>

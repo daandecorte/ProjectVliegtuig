@@ -13,14 +13,14 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Managers
 {
-    public class BulletManager: Manager<Bullet>
+    public class BulletManager: Manager<Ammunition>
     {
         private static BulletManager bulletManager;
-        public static List<Bullet> BulletList { get => bulletManager.ObjectList; }
+        public static List<Ammunition> BulletList { get => bulletManager.ObjectList; }
 
         private BulletManager()
         {
-            ObjectList = new List<Bullet>();
+            ObjectList = new List<Ammunition>();
         }
         public static BulletManager Init()
         {

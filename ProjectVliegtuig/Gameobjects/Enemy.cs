@@ -49,8 +49,6 @@ namespace ProjectVliegtuig.Gameobjects
         {
             base.Update(gameTime);
             UpdateDirection(Player.Get().position);
-            Move();
-            Shoot(gameTime);
         }
         protected virtual void UpdateDirection(Vector2 destination)
         {
@@ -69,7 +67,5 @@ namespace ProjectVliegtuig.Gameobjects
             }
             else return false;
         }
-        protected override void Shoot(GameTime gameTime)
-        {}
     }
 }

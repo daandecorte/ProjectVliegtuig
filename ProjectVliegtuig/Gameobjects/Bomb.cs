@@ -20,7 +20,7 @@ namespace ProjectVliegtuig.Gameobjects
             speed = new Vector2(0, 5);
             if (Math.Sign(direction.X) < 1) rotation -= rotation;
         }
-        protected override void Move()
+        public override void Move()
         {
             speed *= 1.05f;
             base.Move();

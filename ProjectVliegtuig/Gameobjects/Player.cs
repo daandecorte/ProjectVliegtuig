@@ -65,12 +65,10 @@ namespace ProjectVliegtuig.Gameobjects
         {
             animatie.fps = 10 + 5 * (int)Math.Sqrt(Math.Pow(speed.X, 2) + Math.Pow(speed.Y, 2));
             animatie.Update(gameTime);
-            Shoot(gameTime);
-            Move();
-            Collide();
             base.Update(gameTime);
+            Collide();
         }
-        protected override void Move()
+        public override void Move()
         {
             direction = keyboard.ReadInput();
 
@@ -89,7 +87,7 @@ namespace ProjectVliegtuig.Gameobjects
                 speed.X = -speed.X;
             }
         }
-        protected override void Shoot(GameTime gameTime)
+        public override void Shoot(GameTime gameTime)
         {
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && !pressed)
             {
@@ -114,7 +112,7 @@ namespace ProjectVliegtuig.Gameobjects
         {
             for (int i = 0; i < BulletManager.BulletList.Count; i++)
             {
-                Bullet bullet = BulletManager.BulletList[i];
+                Ammunition bullet = BulletManager.BulletList[i];
                 if(rectangle.Intersects(bullet.rectangle))
                 {
                     health--;

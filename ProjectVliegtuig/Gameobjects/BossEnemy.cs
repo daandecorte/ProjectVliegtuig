@@ -23,7 +23,7 @@ namespace ProjectVliegtuig.Gameobjects
             acceleration = 0.20f;
             scale = 1.4f;
         }
-        protected override void Shoot(GameTime gameTime)
+        public override void Shoot(GameTime gameTime)
         {
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             if (secondCounter >= 0.15d)

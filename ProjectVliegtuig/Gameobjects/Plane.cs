@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using ProjectVliegtuig.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Gameobjects
 {
-    public abstract class Plane: GameObject
+    public abstract class Plane: GameObject, IMovable, IShooting
     {
         public int health;
         protected double secondCounter = 0;
@@ -15,8 +16,14 @@ namespace ProjectVliegtuig.Gameobjects
         protected float deceleration = 0.98f;
         protected Vector2 direction;
         protected float scale = 1f;
-        protected abstract void Shoot(GameTime gameTime);
-        protected virtual void Move()
+        public override void Update(GameTime gameTime)
+        {
+            base.Update(gameTime);
+            Shoot(gameTime);
+            Move();
+        }
+        public virtual void Shoot(GameTime gameTime) { }
+        public virtual void Move()
         {
             speed += direction * acceleration;
             speed *= deceleration;
