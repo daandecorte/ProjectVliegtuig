@@ -59,7 +59,8 @@ namespace ProjectVliegtuig.Display
         public void Draw(SpriteBatch s)
         {
             Color color = Color.White;
-            if (isHovering || !enabled) color = Color.Gray;
+            if (!enabled) color = Color.Gray;
+            else if (isHovering) color = Color.LightGray;
             s.Draw(texture, Rectangle, color);
             if(!string.IsNullOrEmpty(Text))
             {
