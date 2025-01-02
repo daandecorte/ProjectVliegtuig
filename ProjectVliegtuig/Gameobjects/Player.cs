@@ -104,7 +104,7 @@ namespace ProjectVliegtuig.Gameobjects
             if (Keyboard.GetState().IsKeyDown(Keys.Space) && !pressed)
             {
                 pressed = true;
-                BulletManager.BulletList.Add(new Bullet(speed, position));
+                AmmunitionManager.AmmunitionList.Add(new Bullet(speed, position));
                 secondCounter = 0;
             }
             else if (Keyboard.GetState().IsKeyDown(Keys.Space) && pressed)
@@ -122,13 +122,13 @@ namespace ProjectVliegtuig.Gameobjects
         }
         private void Collide()
         {
-            for (int i = 0; i < BulletManager.BulletList.Count; i++)
+            for (int i = 0; i < AmmunitionManager.AmmunitionList.Count; i++)
             {
-                Ammunition bullet = BulletManager.BulletList[i];
+                Ammunition bullet = AmmunitionManager.AmmunitionList[i];
                 if(rectangle.Intersects(bullet.rectangle))
                 {
                     Hit(bullet);
-                    BulletManager.BulletList.RemoveAt(i);
+                    AmmunitionManager.AmmunitionList.RemoveAt(i);
                     if(i>0) i--;
                 }
             }

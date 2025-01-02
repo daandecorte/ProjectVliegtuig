@@ -40,11 +40,11 @@ namespace ProjectVliegtuig.Managers
             for (int i = 0; i < ObjectList.Count; i++)
             {
                 ObjectList[i].Update(gameTime);
-                for (int j = 0; j<BulletManager.BulletList.Count; j++)
+                for (int j = 0; j<AmmunitionManager.AmmunitionList.Count; j++)
                 {
-                    if (ObjectList[i].Collide(BulletManager.BulletList[j]))
+                    if (ObjectList[i].Collide(AmmunitionManager.AmmunitionList[j]))
                     {
-                        BulletManager.BulletList.Remove(BulletManager.BulletList[j]);
+                        AmmunitionManager.AmmunitionList.Remove(AmmunitionManager.AmmunitionList[j]);
                         j--;
                     }
                 }

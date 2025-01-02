@@ -24,7 +24,7 @@ namespace ProjectVliegtuig.Gameobjects
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             if (secondCounter >= 1d)
             {
-                BulletManager.BulletList.Add(new Bullet(speed, position));
+                AmmunitionManager.AmmunitionList.Add(new Bullet(speed, position));
                 secondCounter = 0;
             }
         }

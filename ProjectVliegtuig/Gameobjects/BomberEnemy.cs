@@ -30,7 +30,7 @@ namespace ProjectVliegtuig.Gameobjects
             secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
             if (secondCounter >= 2d)
             {
-                BulletManager.BulletList.Add(new Bomb(speed, position));
+                AmmunitionManager.AmmunitionList.Add(new Bomb(speed, position));
                 secondCounter = 0;
             }
         }

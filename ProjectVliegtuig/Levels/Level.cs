@@ -47,7 +47,7 @@ namespace ProjectVliegtuig.Levels
             Player.Get().Reset();
             managers = [
                 EnemyManager.Init(),
-                BulletManager.Init(),
+                AmmunitionManager.Init(),
                 ExplosionManager.Init()
             ];
         }
