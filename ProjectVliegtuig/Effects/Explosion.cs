@@ -18,17 +18,21 @@ namespace ProjectVliegtuig.Effects
         private double aliveTime = 0;
         private int fps = 10;
         public bool AnimationDone { get => aliveTime >= 7d/(double)fps; }
+        protected override Texture2D _texture
+        {
+            get => texture;
+        }
 
         public Explosion(Vector2 position)
         {
             this.position = position;
             animatie = new Animatie() { fps = this.fps };
-            animatie.GetFramesFromTexture(texture.Width, texture.Height, 7, 1);
-            origin = new Vector2(texture.Width / 14, texture.Height / 2);
+            animatie.GetFramesFromTexture(_texture.Width, _texture.Height, 7, 1);
+            origin = new Vector2(_texture.Width / 14, _texture.Height / 2);
         }
         public override void Draw(SpriteBatch s)
         {
-            s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, 0, origin, 1, SpriteEffects.None, 0);
+            s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, 0, origin, 1, SpriteEffects.None, 0);
         }
 
         public override void Update(GameTime gameTime)

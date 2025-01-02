@@ -27,20 +27,24 @@ namespace ProjectVliegtuig.Gameobjects
 
         private Texture2D box;
         private static Player player;
+        protected override Texture2D _texture 
+        {
+            get => texture;
+        }
         public Player()
         {
             health = 3;
             acceleration = 0.25f;
             deceleration = 0.98f;
             Reset();
-            size = new Vector2(texture.Width/6, texture.Height);
+            size = new Vector2(_texture.Width/6, _texture.Height);
             origin = new Vector2(size.X / 2, size.Y / 2);
 
             box = new Texture2D(graphicsDevice, 1, 1);
             box.SetData(new[] { Color.Red });
 
             animatie = new Animatie();
-            animatie.GetFramesFromTexture(texture.Width, texture.Height, 6, 1);
+            animatie.GetFramesFromTexture(_texture.Width, _texture.Height, 6, 1);
             rectangle = new Rectangle();
         }
         public static void Init()
@@ -57,7 +61,7 @@ namespace ProjectVliegtuig.Gameobjects
         public override void Draw(SpriteBatch s)
         {
             //s.Draw(box, rectangle, Color.White);
-            s.Draw(texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
+            s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }
 
