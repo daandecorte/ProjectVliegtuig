@@ -48,18 +48,10 @@ namespace ProjectVliegtuig.Managers
                         j--;
                     }
                 }
-                if (ObjectList[i].Collide(Player.Get()))
+                if (!Player.Get().wasHit && ObjectList[i].Collide(Player.Get()))
                 {
-                    if (ObjectList[i] is BossEnemy)
-                    {
-                        ObjectList[i].health--;
-                    }
-                    else
-                    {
-                        ObjectList[i].health=0;
-                    }
-                    Player.Get().health--;
-                }
+                    Player.Get().Hit(ObjectList[i]);
+                } 
                 if (ObjectList[i].health <= 0)
                 {
                     ExplosionManager.AddExplosion(ObjectList[i].position);

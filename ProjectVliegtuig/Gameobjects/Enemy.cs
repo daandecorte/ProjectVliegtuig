@@ -60,9 +60,13 @@ namespace ProjectVliegtuig.Gameobjects
         {
             if(rectangle.Intersects(obj.rectangle))
             {
-                health--;
+                if (obj is Player) 
+                {
+                    if(!(this is BossEnemy))
+                        health = 0;
+                } 
+                else health--;
                 speed = (obj.speed/2f)+speed;
-                obj.speed = speed + obj.speed;
                 return true;
             }
             else return false;

@@ -24,9 +24,11 @@ namespace ProjectVliegtuig.Gameobjects
         public static Texture2D healthBar;
 
         KeyboardReader keyboard = new KeyboardReader();
-
-        private Texture2D box;
         private static Player player;
+
+        public bool wasHit = false;
+        private double invincibleTime = 1d;
+        private double timer = 0;
         protected override Texture2D _texture 
         {
             get => texture;
@@ -39,9 +41,6 @@ namespace ProjectVliegtuig.Gameobjects
             Reset();
             size = new Vector2(_texture.Width/6, _texture.Height);
             origin = new Vector2(size.X / 2, size.Y / 2);
-
-            box = new Texture2D(graphicsDevice, 1, 1);
-            box.SetData(new[] { Color.Red });
 
             animatie = new Animatie();
             animatie.GetFramesFromTexture(_texture.Width, _texture.Height, 6, 1);
@@ -60,13 +59,22 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Draw(SpriteBatch s)
         {
-            //s.Draw(box, rectangle, Color.White);
-            s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
+            if(!wasHit) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
+            else if(!(10*Math.Round(timer, 1)%2==0)) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
             s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
         }
 
         public override void Update(GameTime gameTime)
         {
+            if(wasHit)
+            {
+                timer+=gameTime.ElapsedGameTime.TotalSeconds;
+                if(timer>=invincibleTime)
+                {
+                    timer = 0;
+                    wasHit = false;
+                }
+            }
             animatie.fps = 10 + 5 * (int)Math.Sqrt(Math.Pow(speed.X, 2) + Math.Pow(speed.Y, 2));
             animatie.Update(gameTime);
             base.Update(gameTime);
@@ -119,8 +127,7 @@ namespace ProjectVliegtuig.Gameobjects
                 Ammunition bullet = BulletManager.BulletList[i];
                 if(rectangle.Intersects(bullet.rectangle))
                 {
-                    health--;
-                    speed = (bullet.speed / 2f) + speed;
+                    Hit(bullet);
                     BulletManager.BulletList.RemoveAt(i);
                     if(i>0) i--;
                 }
@@ -129,8 +136,20 @@ namespace ProjectVliegtuig.Gameobjects
         public void Reset()
         {
             health = 3;
+            wasHit = false;
+            timer = 0;
             position = new Vector2(DisplayManager.getDisplay().width / 2, DisplayManager.getDisplay().height / 2);
             speed = new Vector2(0, 0);
+        }
+        public void Hit(GameObject o)
+        {
+            if (o is BossEnemy) health = 0;
+            if(!wasHit)
+            {
+                speed = (o.speed / 2f) + speed;
+                health--;
+                wasHit = true;
+            }
         }
     }
 }
