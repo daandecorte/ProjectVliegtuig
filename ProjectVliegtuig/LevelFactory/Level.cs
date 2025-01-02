@@ -1,21 +1,15 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Display;
-using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Gameobjects.Planes;
 using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.Managers;
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
-using System.Threading.Tasks.Dataflow;
 
-namespace ProjectVliegtuig.Levels
+namespace ProjectVliegtuig.LevelFactory
 {
-    public class Level: IGameObject
+    public class Level : IGameObject
     {
         public static SpriteFont Font;
         public static Texture2D winscreen;
@@ -35,7 +29,7 @@ namespace ProjectVliegtuig.Levels
         public bool LevelOver { get; private set; }
         public Level(int minEnemyLevel, int maxEnemyLevel, int enemyCount, int spawnInterval)
         {
-            this.minEnemyLevel = minEnemyLevel-1;
+            this.minEnemyLevel = minEnemyLevel - 1;
             this.maxEnemyLevel = maxEnemyLevel;
             this.enemyCount = enemyCount;
             this.spawnInterval = spawnInterval;
@@ -62,7 +56,7 @@ namespace ProjectVliegtuig.Levels
         }
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1600, 10), Color.Black, 0, new Vector2(0,0), 1.2f, SpriteEffects.None, 0);
+            spriteBatch.DrawString(Font, $"{enemyCount - enemiesSpawned + EnemyManager.EnemyList.Count} Enemies Remaining", new Vector2(1600, 10), Color.Black, 0, new Vector2(0, 0), 1.2f, SpriteEffects.None, 0);
             foreach (var manager in managers)
             {
                 manager.Draw(spriteBatch);
@@ -102,11 +96,11 @@ namespace ProjectVliegtuig.Levels
             }
             else
             {
-                if(EnemyManager.EnemyList.Count==0)
+                if (EnemyManager.EnemyList.Count == 0)
                 {
                     hasWon = true;
                     secondCounter += gameTime.ElapsedGameTime.TotalSeconds;
-                    if(secondCounter>=1)
+                    if (secondCounter >= 1)
                     {
                         LevelOver = true;
                     }

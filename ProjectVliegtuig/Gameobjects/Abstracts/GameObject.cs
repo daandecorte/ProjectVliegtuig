@@ -2,15 +2,10 @@
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.Abstracts
 {
-    public abstract class GameObject: IGameObject
+    public abstract class GameObject : IGameObject
     {
         public static GraphicsDevice graphicsDevice;
         public Rectangle rectangle;

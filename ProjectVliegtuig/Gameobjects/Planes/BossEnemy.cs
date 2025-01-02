@@ -1,20 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectVliegtuig.Gameobjects.AmmunitionTypes;
 using ProjectVliegtuig.Managers;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.Planes
 {
-    public class BossEnemy: Enemy
+    public class BossEnemy : Enemy
     {
         public static new Texture2D texture;
         private bool left = true;
-        protected override Texture2D _texture 
+        protected override Texture2D _texture
         {
             get => texture;
         }
@@ -29,14 +25,14 @@ namespace ProjectVliegtuig.Gameobjects
             if (secondCounter >= 0.15d)
             {
                 Vector2 d = new Vector2((float)Math.Sin(rotation), -(float)Math.Cos(rotation));
-                if(left)
+                if (left)
                 {
-                    AmmunitionManager.AmmunitionList.Add(new Bullet(d, new Vector2(position.X - (d.Y * 50), position.Y + (d.X * 50))));
+                    AmmunitionManager.AmmunitionList.Add(new Bullet(d, new Vector2(position.X - d.Y * 50, position.Y + d.X * 50)));
                     left = !left;
                 }
                 else
                 {
-                    AmmunitionManager.AmmunitionList.Add(new Bullet(d, new Vector2(position.X + (d.Y * 50), position.Y - (d.X * 50))));
+                    AmmunitionManager.AmmunitionList.Add(new Bullet(d, new Vector2(position.X + d.Y * 50, position.Y - d.X * 50)));
                     left = !left;
                 }
                 secondCounter = 0;

@@ -1,14 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
-using ProjectVliegtuig.Display;
-using ProjectVliegtuig.Effects;
-using ProjectVliegtuig.Gameobjects;
-using System;
+using ProjectVliegtuig.Gameobjects.Planes;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Managers
 {

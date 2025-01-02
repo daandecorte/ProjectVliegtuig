@@ -1,22 +1,18 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using ProjectVliegtuig.Gameobjects.AmmunitionTypes;
 using ProjectVliegtuig.Managers;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.Planes
 {
-    internal class BomberEnemy: Enemy
+    internal class BomberEnemy : Enemy
     {
         public static new Texture2D texture;
         protected override Texture2D _texture
         {
             get => texture;
         }
-        public BomberEnemy(Vector2 position): base(position, 5) 
+        public BomberEnemy(Vector2 position) : base(position, 5)
         {
             acceleration = 0.20f;
         }

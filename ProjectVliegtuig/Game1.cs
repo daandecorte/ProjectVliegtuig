@@ -1,15 +1,14 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Input.Touch;
 using ProjectVliegtuig.Display;
 using ProjectVliegtuig.Effects;
-using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Gameobjects.Abstracts;
+using ProjectVliegtuig.Gameobjects.AmmunitionTypes;
+using ProjectVliegtuig.Gameobjects.Planes;
 using ProjectVliegtuig.LevelCreators;
-using ProjectVliegtuig.Levels;
-using ProjectVliegtuig.Managers;
+using ProjectVliegtuig.LevelFactory;
 using System;
-using System.Text;
 
 namespace ProjectVliegtuig
 {

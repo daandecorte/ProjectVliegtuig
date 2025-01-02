@@ -3,19 +3,15 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using ProjectVliegtuig.Animation;
 using ProjectVliegtuig.Display;
+using ProjectVliegtuig.Gameobjects.Abstracts;
+using ProjectVliegtuig.Gameobjects.AmmunitionTypes;
 using ProjectVliegtuig.Input;
-using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.Managers;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.Planes
 {
-    public class Player : Plane
+    public class Player : Abstracts.Plane
     {
         public static Texture2D texture;
         private Animatie animatie;
@@ -29,7 +25,7 @@ namespace ProjectVliegtuig.Gameobjects
         public bool wasHit = false;
         private double invincibleTime = 1d;
         private double timer = 0;
-        protected override Texture2D _texture 
+        protected override Texture2D _texture
         {
             get => texture;
         }
@@ -39,7 +35,7 @@ namespace ProjectVliegtuig.Gameobjects
             acceleration = 0.25f;
             deceleration = 0.98f;
             Reset();
-            size = new Vector2(_texture.Width/6, _texture.Height);
+            size = new Vector2(_texture.Width / 6, _texture.Height);
             origin = new Vector2(size.X / 2, size.Y / 2);
 
             animatie = new Animatie();
@@ -48,7 +44,7 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public static void Init()
         {
-            if(player==null)
+            if (player == null)
             {
                 player = new Player();
             }
@@ -59,17 +55,17 @@ namespace ProjectVliegtuig.Gameobjects
         }
         public override void Draw(SpriteBatch s)
         {
-            if(!wasHit) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
-            else if(!(10*Math.Round(timer, 1)%2==0)) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
-            s.Draw(healthBar, new Vector2(0, 0) , new Rectangle(0, 0, (healthBar.Width/3)*health, healthBar.Height), Color.White);
+            if (!wasHit) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
+            else if (!(10 * Math.Round(timer, 1) % 2 == 0)) s.Draw(_texture, position, animatie.CurrentFrame.SourceRectangle, Color.White, rotation, origin, scale, SpriteEffects.None, 0f);
+            s.Draw(healthBar, new Vector2(0, 0), new Rectangle(0, 0, healthBar.Width / 3 * health, healthBar.Height), Color.White);
         }
 
         public override void Update(GameTime gameTime)
         {
-            if(wasHit)
+            if (wasHit)
             {
-                timer+=gameTime.ElapsedGameTime.TotalSeconds;
-                if(timer>=invincibleTime)
+                timer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (timer >= invincibleTime)
                 {
                     timer = 0;
                     wasHit = false;
@@ -125,11 +121,11 @@ namespace ProjectVliegtuig.Gameobjects
             for (int i = 0; i < AmmunitionManager.AmmunitionList.Count; i++)
             {
                 Ammunition bullet = AmmunitionManager.AmmunitionList[i];
-                if(rectangle.Intersects(bullet.rectangle))
+                if (rectangle.Intersects(bullet.rectangle))
                 {
                     Hit(bullet);
                     AmmunitionManager.AmmunitionList.RemoveAt(i);
-                    if(i>0) i--;
+                    if (i > 0) i--;
                 }
             }
         }
@@ -144,9 +140,9 @@ namespace ProjectVliegtuig.Gameobjects
         public void Hit(GameObject o)
         {
             if (o is BossEnemy) health = 0;
-            if(!wasHit)
+            if (!wasHit)
             {
-                speed = (o.speed / 2f) + speed;
+                speed = o.speed / 2f + speed;
                 health--;
                 wasHit = true;
             }

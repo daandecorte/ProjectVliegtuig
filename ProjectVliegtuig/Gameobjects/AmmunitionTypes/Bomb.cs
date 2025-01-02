@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.AmmunitionTypes
 {
-    internal class Bomb: Bullet
+    internal class Bomb : Bullet
     {
         public static new Texture2D texture;
         protected override Texture2D _texture

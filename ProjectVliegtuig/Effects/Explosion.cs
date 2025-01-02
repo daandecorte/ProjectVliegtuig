@@ -1,13 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using ProjectVliegtuig.Animation;
-using ProjectVliegtuig.Gameobjects;
-using ProjectVliegtuig.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ProjectVliegtuig.Gameobjects.Abstracts;
 
 namespace ProjectVliegtuig.Effects
 {

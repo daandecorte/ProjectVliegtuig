@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using ProjectVliegtuig.Gameobjects;
+using ProjectVliegtuig.Gameobjects.Planes;
 using ProjectVliegtuig.Interfaces;
 using ProjectVliegtuig.LevelCreators;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Display
 {

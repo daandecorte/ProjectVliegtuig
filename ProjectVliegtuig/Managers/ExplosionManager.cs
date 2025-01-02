@@ -1,12 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using ProjectVliegtuig.Effects;
-using ProjectVliegtuig.Gameobjects;
-using System;
 using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ProjectVliegtuig.Managers
 {

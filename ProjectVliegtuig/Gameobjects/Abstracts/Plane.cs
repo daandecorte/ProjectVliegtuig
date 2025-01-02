@@ -1,14 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using ProjectVliegtuig.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ProjectVliegtuig.Gameobjects
+namespace ProjectVliegtuig.Gameobjects.Abstracts
 {
-    public abstract class Plane: GameObject, IMovable, IShooting
+    public abstract class Plane : GameObject, IMovable, IShooting
     {
         public int health;
         protected double secondCounter = 0;
