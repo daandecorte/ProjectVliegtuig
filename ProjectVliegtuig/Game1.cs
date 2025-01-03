@@ -44,7 +44,6 @@ namespace ProjectVliegtuig
         {
             DisplayManager.getDisplay().Apply();
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            GameObject.graphicsDevice = GraphicsDevice;
 
             background = Content.Load<Texture2D>("background");
             
@@ -103,7 +102,9 @@ namespace ProjectVliegtuig
                     lastLevel = currentLevel;
                     currentLevel = 1;
                 }
+
                 level.Update(gameTime);
+
                 if (level?.LevelOver == true)
                 {
                     isPlaying = false;

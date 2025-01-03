@@ -7,17 +7,13 @@ namespace ProjectVliegtuig.Gameobjects.Abstracts
 {
     public abstract class GameObject : IGameObject
     {
-        public static GraphicsDevice graphicsDevice;
         public Rectangle rectangle;
         public Vector2 speed;
         public Vector2 position;
         public float rotation;
         public Vector2 size;
         public Vector2 origin;
-        protected abstract Texture2D _texture
-        {
-            get;
-        }
+        protected abstract Texture2D _texture { get; }
         public virtual void Update(GameTime gameTime)
         {
             rectangle.Width = (int)Math.Sqrt(Math.Pow(size.X * Math.Cos(rotation), 2) + Math.Pow(size.Y * Math.Sin(rotation), 2));
